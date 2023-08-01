@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8565326218289266970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 115611093171321690, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 149653628, guid: 8977f496438524141896cd832e055c34, type: 3}
+    - target: {fileID: 170465090098362092, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_Name
+      value: Card Blue Pentagone (0) Variant 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737871006927278328, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ac4cd8c9374d69e4eac31995f69cc537, type: 3}
+    - target: {fileID: 4069033753919516127, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: cardNumber
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137852620327686045, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137852620327686045, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}

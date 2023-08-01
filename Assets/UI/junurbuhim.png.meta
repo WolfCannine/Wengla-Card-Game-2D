@@ -1,0 +1,1385 @@
+fileFormatVersion: 2
+guid: bcbdaa9a3482fa447a83ff2dfcd1fc59
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: junurbuhim_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 361
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0768d11c85dd3740b256dd49d3fbeb8
+      internalID: 236636311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9115f7a2e66904bace48b28a1065b4
+      internalID: 358875399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d41fdbfb180aa84ea9007516195d2e3
+      internalID: -1621222397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bb29f913cce9e4b8f4c88aae093451
+      internalID: -1356960050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_4
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b515c63f7257f64e82ec803b5a7335f
+      internalID: 60888771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb5de9feb6c6a74787ca6a38084c44a
+      internalID: -1105483495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_6
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1680142d6bf53f44fa8bfe22c9522804
+      internalID: 652576748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_7
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 361.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a342d56085e5c045bf4513c4ee6dcac
+      internalID: -481151361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ab839fc06d3e34091874854b5bc311
+      internalID: -481327656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_9
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06953202e1e189f4291f6d18135274f2
+      internalID: 762929621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_10
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2aee6511c0e7048afc440d323ff312
+      internalID: 1293610629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_11
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf339ba7ad8c3e341b5f6a8a390b968d
+      internalID: -489886224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_12
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0417fc5f8f32dc2498ecd12b58a19aad
+      internalID: 1303927960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_13
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea40b86ebec748408d65497612e672a
+      internalID: 1405898096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_14
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b405c903e16eccd4ab4c435f5e6d42eb
+      internalID: -366410338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_15
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 301.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d054c4dd0b7eb48b99c7695687f5d9
+      internalID: 992047918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_16
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 241
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca542360c23fc6489c25c6d8bee747f
+      internalID: -1050896577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_17
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255e12a194713434db9d886b3f33e51d
+      internalID: -1768275711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_18
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb18561ca2976c43b6477502e78b898
+      internalID: 1650618643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_19
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157c5fb58f760b443bab66b5dfef515a
+      internalID: -553209321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_20
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719343f437613d14698d62ae4a5f32a1
+      internalID: -1955646670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_21
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef1466b2263cfd4385c27f2b155d968
+      internalID: -959005286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_22
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d30fa7aaf5b1e4a898a5f8508f448c
+      internalID: 1688176683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_23
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 241.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a3b318cc6ce3a4bb3298a28bc2cec0
+      internalID: -1891041344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_24
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b63e9634b5cb304b99949d1e48e2245
+      internalID: -1861394938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_25
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e41ed61fe563104e8786a3bd38bb875
+      internalID: 1595637413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_26
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b4ceb76d417f84589b8967a3fbbddf
+      internalID: -1169280195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_27
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4478ea1fdc796245b45029556d713e4
+      internalID: 292772330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_28
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acea709c098e5a846b12b9aae5b44a59
+      internalID: -258829518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d3589db0672a340b2a6dfa9cd65107
+      internalID: 30017709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_30
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae14896422b45547b1aa6ad1960f0aa
+      internalID: -1997321375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_31
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 181.7143
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060b38d16341e3c4c9910ca89101d217
+      internalID: 332206147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_32
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0add81c35c2fb754080bb40552e55a5a
+      internalID: 133690760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_33
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d670d6ea687cdd4cb6598900f15a7c3
+      internalID: -1149897065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_34
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf16271fad03b84f8c4d10d3ea937c1
+      internalID: 494272192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_35
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bf9aac32608954aa98f8e8989cf7c0
+      internalID: -732109114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_36
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c75a2c6013f324d81fcc6611c1f62a
+      internalID: -938503037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_37
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bd1c88091077e4491158e8adaf48c1
+      internalID: 181722894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_38
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e5d0b48aabe042b4ea514113d0df9
+      internalID: 606496600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_39
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 121.71429
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07a82e34d57b03488120eeaf3d36d48
+      internalID: -2032776971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_40
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8a2b88756cbc74bb19e485bc327cad
+      internalID: 810268176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_41
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8cdd4e654d1ba41b28462333e612c5
+      internalID: -2034007926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_42
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38efbca6f0578684bb5ebae73b6dc436
+      internalID: -1051699676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_43
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeed5d0cfca7c1b4da60953be64896aa
+      internalID: -1436781210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_44
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898fc9652c5304047b021d289aaac643
+      internalID: 1337116648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_45
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668e6400293797f45abbc373de42ff76
+      internalID: 149988984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_46
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ad799be564fe74a809e5f00c06416d
+      internalID: -1040893589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_47
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 61.714287
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a788751ec8292e14ca99a5661d230e31
+      internalID: -465574573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_48
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32537035a9673c45999903c243b290d
+      internalID: 1643129805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_49
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0cb78f4e5ff084f920fe1c619ee1c8
+      internalID: -202552218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_50
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59af81e17bc904c44b908e11a10e0a3c
+      internalID: -1427586808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_51
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af64ab10b190984aaef8fd26fae11b1
+      internalID: 1506972170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_52
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad322d64e24e1b44487cf15eccbbd213
+      internalID: -1468910556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_53
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368e1811c6a59cc4c85be88cd4c4bf06
+      internalID: 1731881546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_54
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2be9dd2a6e7733448fd2c40a0bcbf6f
+      internalID: -1866393417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: junurbuhim_55
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1.7142868
+        width: 57.625
+        height: 60.285713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b11971651d3504ca0d49549ec84d34
+      internalID: -1082230601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      junurbuhim_0: 236636311
+      junurbuhim_1: 358875399
+      junurbuhim_10: 1293610629
+      junurbuhim_11: -489886224
+      junurbuhim_12: 1303927960
+      junurbuhim_13: 1405898096
+      junurbuhim_14: -366410338
+      junurbuhim_15: 992047918
+      junurbuhim_16: -1050896577
+      junurbuhim_17: -1768275711
+      junurbuhim_18: 1650618643
+      junurbuhim_19: -553209321
+      junurbuhim_2: -1621222397
+      junurbuhim_20: -1955646670
+      junurbuhim_21: -959005286
+      junurbuhim_22: 1688176683
+      junurbuhim_23: -1891041344
+      junurbuhim_24: -1861394938
+      junurbuhim_25: 1595637413
+      junurbuhim_26: -1169280195
+      junurbuhim_27: 292772330
+      junurbuhim_28: -258829518
+      junurbuhim_29: 30017709
+      junurbuhim_3: -1356960050
+      junurbuhim_30: -1997321375
+      junurbuhim_31: 332206147
+      junurbuhim_32: 133690760
+      junurbuhim_33: -1149897065
+      junurbuhim_34: 494272192
+      junurbuhim_35: -732109114
+      junurbuhim_36: -938503037
+      junurbuhim_37: 181722894
+      junurbuhim_38: 606496600
+      junurbuhim_39: -2032776971
+      junurbuhim_4: 60888771
+      junurbuhim_40: 810268176
+      junurbuhim_41: -2034007926
+      junurbuhim_42: -1051699676
+      junurbuhim_43: -1436781210
+      junurbuhim_44: 1337116648
+      junurbuhim_45: 149988984
+      junurbuhim_46: -1040893589
+      junurbuhim_47: -465574573
+      junurbuhim_48: 1643129805
+      junurbuhim_49: -202552218
+      junurbuhim_5: -1105483495
+      junurbuhim_50: -1427586808
+      junurbuhim_51: 1506972170
+      junurbuhim_52: -1468910556
+      junurbuhim_53: 1731881546
+      junurbuhim_54: -1866393417
+      junurbuhim_55: -1082230601
+      junurbuhim_6: 652576748
+      junurbuhim_7: -481151361
+      junurbuhim_8: -481327656
+      junurbuhim_9: 762929621
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
