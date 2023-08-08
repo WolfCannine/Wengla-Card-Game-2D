@@ -7,7 +7,7 @@ public class GameplayUI : MonoBehaviour
 
     public GameObject shuffleButtonGO;
     public GameObject dealButtonGO;
-    public GameObject notificationTextPrefab;
+    public TextMeshProUGUI notificationText;
     public GameObject notificationParentGO;
 
     private void Awake()
@@ -24,8 +24,12 @@ public class GameplayUI : MonoBehaviour
 
     public void CallNotification(string notification)
     {
-        GameObject notificationGO = Instantiate(notificationTextPrefab, notificationParentGO.transform);
-        notificationGO.GetComponent<TextMeshProUGUI>().text = notification;
-        Destroy(notificationGO, 3f);
+        notificationText.text = notification;
+        Invoke(nameof(ResetText), 3f);
+    }
+
+    private void ResetText()
+    {
+        notificationText.text = "";
     }
 }
