@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Event", menuName = "Scriptable Object/Game Event", order = 2)]
 public class GameEvent : ScriptableObject
 {
-    private List<GameEventListener> listeners = new();
+    private List<EventListener> listeners = new();
 
 
     public void TriggerEvent()
@@ -15,12 +15,12 @@ public class GameEvent : ScriptableObject
         }
     }
 
-    public void AddListener(GameEventListener listener)
+    public void AddListener(EventListener listener)
     {
         listeners.Add(listener);
     }
 
-    public void RemoveListener(GameEventListener listener)
+    public void RemoveListener(EventListener listener)
     {
         listeners.Remove(listener);
     }

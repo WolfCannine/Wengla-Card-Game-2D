@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int gameLevel;
     public int gameMode;
     public string nextScene;
-
+    public Mode mode;
 
     private void Awake() { Instance = this; }
 }

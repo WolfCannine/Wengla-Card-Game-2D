@@ -28,39 +28,37 @@ public class CardManager : MonoBehaviour
     private void Awake()
     {
         cm = this;
-        //_ = StartCoroutine(InstantiateAllCards());
         for (int i = 0; i < totalCards; i++)
         {
             cards[i].cardID = i;
         }
     }
 
-    private IEnumerator InstantiateAllCards()
+    private void Start()
     {
-        int i = 0;
-        while (i < totalCards)
-        {
-            
-        }
-        yield return new WaitForSeconds(0.1f);
+        Invoke(nameof(ShuffleCards), 0f);
     }
 
     public void ShuffleCards()
     {
-        Shuffle(playerCardsIDs);
-        GameplayUI.gUI.ActivateDealCardButton();
+        GameplayUI.gUI.CallNotification("Dealer is Shufling Cards!");
+        Helper.Shuffle(playerCardsIDs);
+        Invoke(nameof(DealCards), 0f);
+        //GameplayUI.gUI.ActivateDealCardButton();
     }
 
     public void DealCards()
     {
-        GameplayUI.gUI.dealButtonGO.SetActive(false);
+        GameplayUI.gUI.CallNotification("Dealer is Assigning Cards!");
+        //GameplayUI.gUI.dealButtonGO.SetActive(false);
         _ = StartCoroutine(AssignCardsToHand());
     }
 
-    public void AssignBeginnerCard() // the 13th card
+    public void AssignBeginnerCard()
     {
         int randomPlayer = Random.Range(0, 10);
         GameController.gc.players[randomPlayer].AssignBeginnerCard(playerCardsIDs[ID]);
+        GameplayUI.gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayer);
     }
 
     private IEnumerator AssignCardsToHand()
@@ -75,25 +73,11 @@ public class CardManager : MonoBehaviour
                 cradID_List.Add(playerCardsIDs[ID]);
                 currentCard++;
                 ID++;
-                //yield return new WaitForSeconds(0.2f);
             }
             GameController.gc.players[currentPlayer].AssignCardID_List(cradID_List);
             currentPlayer++;
-            //yield return new WaitForSeconds(0.2f);
         }
+        yield return new WaitForSeconds(0f);
         AssignBeginnerCard();
-        yield return null;
-    }
-
-    private void Shuffle<T>(List<T> list)
-    {
-        System.Random rand = new();
-        int n = list.Count;
-        while (n > 1)
-        {
-            int k = rand.Next(n);
-            n--;
-            (list[n], list[k]) = (list[k], list[n]);
-        }
     }
 }
