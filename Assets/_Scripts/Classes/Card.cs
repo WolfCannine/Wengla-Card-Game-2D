@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public bool pickable;
+
     public bool joker;
     public int cardID;
     public int cardNumber;

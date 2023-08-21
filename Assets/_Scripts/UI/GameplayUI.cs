@@ -33,15 +33,28 @@ public class GameplayUI : MonoBehaviour
         dealButtonGO.SetActive(true);
     }
 
-    public void CallNotification(string notification)
+    public void CallNotification(string notification, float notificationDisableTime = 3, bool resetText = true)
     {
         notificationText.text = notification;
-        Invoke(nameof(ResetText), 3f);
+        if (resetText) { Invoke(nameof(ResetText), notificationDisableTime); }
     }
 
     public void ExposeCard()
     {
-        GameController.gc.players[0].ExposeCard();
+        if (TouchManager.tm.selectedCard == null && !GameController.gc.players[0].haveBeginnerCard)
+        {
+            CallNotification("Plaese select a Card then press Expose Button!", 4);
+        }
+        else
+        {
+            exposeButtonGO.SetActive(false);
+            GameController.gc.players[0].ExposeCard();
+        }
+    }
+
+    public void BuzzerButton()
+    {
+        GameController.gc.players[0].BuzzerCall();
     }
 
     public void RestartButton()

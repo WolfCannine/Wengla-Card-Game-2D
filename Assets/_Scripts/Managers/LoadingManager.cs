@@ -2,14 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class LoadingHandler : MonoBehaviour
+public class LoadingManager : MonoBehaviour
 {
     public string nextScene;
     public GameObject viewMediaLogoPanel;
     public GameObject wenglaLogoPanel;
     public GameObject loginPanel;
-
 
     private void Start()
     {

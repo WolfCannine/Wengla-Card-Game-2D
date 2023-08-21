@@ -32,12 +32,16 @@ public class TouchManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && selectedCard == null && !gameOver)
         {
             rayHit = Cast2DRay;
-            if (rayHit.collider && rayHit.collider.CompareTag("Card"))
+            if (rayHit.collider && rayHit.collider.CompareTag("Card") && rayHit.collider.GetComponent<Card>().pickable)
             {
                 selectedCard = rayHit.collider.gameObject;
                 SpriteRenderer renderer = selectedCard.GetComponent<SpriteRenderer>();
                 renderer.color = golden;
                 GameplayUI.gUI.SetSellectedCard(renderer.sprite);
+            }
+            else if (rayHit.collider && rayHit.collider.CompareTag("Pile"))
+            {
+
             }
         }
         else if (Input.GetMouseButtonUp(0) && selectedCard != null && !gameOver)
@@ -48,12 +52,14 @@ public class TouchManager : MonoBehaviour
             {
 
             }
-            if (rayHit.collider && rayHit.collider.CompareTag("Card") && selectedCard != rayHit.collider.gameObject)
+            if (rayHit.collider && rayHit.collider.CompareTag("Card") && selectedCard != rayHit.collider.gameObject
+                 && rayHit.collider.GetComponent<Card>().pickable)
             {
                 GameObject newCard = rayHit.collider.gameObject;
                 GameObject oldCard = selectedCard;
                 TransformSet transformSetA = new(newCard.transform.position, newCard.transform.rotation, newCard.transform.localScale);
                 TransformSet transformSetB = new(oldCard.transform.position, oldCard.transform.rotation, oldCard.transform.localScale);
+                selectedCard.GetComponent<SpriteRenderer>().color = Color.white;
                 _ = StartCoroutine(MoveRoutine(transformSetB, transformSetA, newCard));
             }
             else if (rayHit.collider && rayHit.collider.CompareTag("Card") && selectedCard == rayHit.collider.gameObject)
@@ -73,7 +79,7 @@ public class TouchManager : MonoBehaviour
     #endregion
 
     #region Animation Routine
-    private const float DURATION = 3f;
+    private const float DURATION = 0.5f;
 
     private IEnumerator MoveRoutine(TransformSet transformSetA, TransformSet transformSetB, GameObject newCard)
     {
@@ -98,17 +104,13 @@ public class TouchManager : MonoBehaviour
         selectedCard.transform.localScale = transformSetB.scale;
         newCard.transform.SetPositionAndRotation(transformSetA.position, transformSetA.rotation);
         newCard.transform.localScale = transformSetA.scale;
-        selectedCard.GetComponent<SpriteRenderer>().color = Color.white;
+        if (selectedCard.transform.localScale.x <= 0.9f)
+        {
+            GameController.gc.players[0].exposeCardID = selectedCard.GetComponent<Card>().cardID;
+        }
         selectedCard = null;
         GameplayUI.gUI.SetSellectedCard();
         inAnimation = false;
     }
     #endregion
 }
-
-/*
-                (Vector3 positionA, Quaternion rotationA, Vector3 scaleA) = (newCard.transform.position, newCard.transform.rotation,
-                    newCard.transform.localScale);
-                (Vector3 positionB, Quaternion rotationB, Vector3 scaleB) = (selectedCard.transform.position,
-                    selectedCard.transform.rotation, selectedCard.transform.localScale);
- */

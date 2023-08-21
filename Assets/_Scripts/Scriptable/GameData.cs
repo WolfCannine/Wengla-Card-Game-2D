@@ -3,17 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Game Data", menuName = "Scriptable Object/Game Data", order = 1)]
 public class GameData : ScriptableObject
 {
-    public int coins;
-    public int unlockedLevel;
-
-    public bool isSoundOn;
-    public bool isMusicOn;
-    public bool removeADs;
-    public bool unlockedAllLevel;
-
-    public string userName;
-    public string emailAddress;
-    public string userPassword;
+    public int wengCoins;
 
     #region Data from server
     //[Header("Data From Server")]
@@ -79,3 +69,5 @@ public class GameData : ScriptableObject
     //public bool RewardedVideoServer;
     #endregion
 }
+
+//com.unity.nuget.newtonsoft-json

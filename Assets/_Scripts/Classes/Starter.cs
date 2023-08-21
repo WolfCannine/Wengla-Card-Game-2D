@@ -1,7 +1,6 @@
 using UnityEngine;
 
-
-public static class Bootstrapper
+public static class Starter
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void Execute()
