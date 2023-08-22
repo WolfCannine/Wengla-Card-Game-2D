@@ -16,10 +16,9 @@ public class CardManager : MonoBehaviour
     public int cardsPerPlayer = 12;
     public GameObject cardsParentGO;
     public GameObject faceDownPilePlaceGO;
+    public List<int> faceDownPile;
     [SerializeField]
     private List<int> playerCardsIDs = new();
-    [SerializeField]
-    private List<int> faceDownPile;
     [SerializeField]
     private List<int> discardPile;
     private int ID = 0;
@@ -32,19 +31,19 @@ public class CardManager : MonoBehaviour
         cm = this;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(3);
         gUI = GameplayUI.gUI;
         gc = GameController.gc;
-        gc.ResetBuzzerOption();
-        Invoke(nameof(ShuffleCards), 3f);
+        Invoke(nameof(ShuffleCards), 0f);
     }
 
     public void ShuffleCards()
     {
         gUI.CallNotification("Dealer is Shufling Cards!");
         Helper.Shuffle(playerCardsIDs);
-        Invoke(nameof(DealCards), 3f);
+        Invoke(nameof(DealCards), 0f);
         //GameplayUI.gUI.ActivateDealCardButton();
     }
 
@@ -57,23 +56,15 @@ public class CardManager : MonoBehaviour
 
     public void AssignBeginnerCard()
     {
-        randomPlayer = 0;// Random.Range(0, 10);
+        gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
+        gc.ResetBuzzerOption();
         gc.SetPlayerTurn(randomPlayer);
         PlayerController randomPlayerController = gc.players[randomPlayer];
         randomPlayerController.AssignBeginnerCard(playerCardsIDs[ID]);
-        SortCardsLoop();
         gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayerController.playerName, 5);
         Invoke(nameof(NotifyForSorting), 5);
         ID++;
         SetFaceDownPile();
-    }
-
-    private void SortCardsLoop() // for AI
-    {
-        foreach (PlayerController pc in gc.players)
-        {
-            pc.SortCards();
-        }
     }
 
     private IEnumerator AssignCardsToHand()
@@ -125,7 +116,7 @@ public class CardManager : MonoBehaviour
 
     private void NotifyForSorting()
     {
-        _ = StartCoroutine(TimerRoutine(20));
+        _ = StartCoroutine(TimerRoutine(5));
     }
 
     private IEnumerator TimerRoutine(int time)

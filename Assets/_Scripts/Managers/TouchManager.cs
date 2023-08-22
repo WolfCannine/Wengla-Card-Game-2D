@@ -16,6 +16,7 @@ public class TouchManager : MonoBehaviour
     private RaycastHit2D hitCell;
     private Color golden;
     private bool inAnimation;
+    private int pileCardIndex;
     #endregion
 
     #region Unity Methods
@@ -41,7 +42,9 @@ public class TouchManager : MonoBehaviour
             }
             else if (rayHit.collider && rayHit.collider.CompareTag("Pile"))
             {
-
+                Card card = GameController.gc.cards[CardManager.cm.faceDownPile[pileCardIndex]];
+                _ = StartCoroutine(MovePileRoutine(rayHit.collider.transform, GameController.gc.centerPlace.transform, card.gameObject));
+                pileCardIndex = (pileCardIndex + 1) % CardManager.cm.faceDownPile.Count;
             }
         }
         else if (Input.GetMouseButtonUp(0) && selectedCard != null && !gameOver)
@@ -81,7 +84,7 @@ public class TouchManager : MonoBehaviour
     #region Animation Routine
     private const float DURATION = 0.5f;
 
-    private IEnumerator MoveRoutine(TransformSet transformSetA, TransformSet transformSetB, GameObject newCard)
+    private IEnumerator MoveRoutine(TransformSet transformSetA, TransformSet transformSetB, GameObject newCard, bool exposeID = true)
     {
         inAnimation = true;
         float elapsedTime = 0;
@@ -104,12 +107,29 @@ public class TouchManager : MonoBehaviour
         selectedCard.transform.localScale = transformSetB.scale;
         newCard.transform.SetPositionAndRotation(transformSetA.position, transformSetA.rotation);
         newCard.transform.localScale = transformSetA.scale;
-        if (selectedCard.transform.localScale.x <= 0.9f)
+        if (selectedCard.transform.localScale.x <= 0.9f && exposeID)
         {
             GameController.gc.players[0].exposeCardID = selectedCard.GetComponent<Card>().cardID;
         }
         selectedCard = null;
         GameplayUI.gUI.SetSellectedCard();
+        inAnimation = false;
+    }
+
+    private IEnumerator MovePileRoutine(Transform transformA, Transform transformB, GameObject card)
+    {
+        inAnimation = true;
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            card.transform.position = Vector2.Lerp(transformA.position, transformB.position, progress);
+
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / DURATION;
+            yield return null;
+        }
+        card.transform.position = new Vector2(transformB.position.x, transformB.position.y);
         inAnimation = false;
     }
     #endregion

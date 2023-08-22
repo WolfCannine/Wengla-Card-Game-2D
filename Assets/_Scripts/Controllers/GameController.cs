@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public int exposeCardID;
     public int buzzerCallerID;
     public int playerTurnNumber;
+    public int firstPlayerNumber;
+    public Coroutine turnRoutine;
     public Transform centerPlace;
     public Transform dealtCardPlace;
     public List<Card> cards;
@@ -32,12 +34,16 @@ public class GameController : MonoBehaviour
 
     public void SetPlayerTurn(int current = -1)
     {
+        if (playerTurnNumber == firstPlayerNumber)
+        {
+            ResetBuzzerOption();
+            return;
+        }
         playerTurnNumber = (current + 1) % players.Count;
         if (!players[playerTurnNumber].haveBuzzerOption)
         {
             SetPlayerTurn(playerTurnNumber);
         }
-        if (playerTurnNumber == 0) { ResetBuzzerOption(); }
     }
 
     public void ResetBuzzerOption()
@@ -47,6 +53,7 @@ public class GameController : MonoBehaviour
         {
             pc.haveBuzzerOption = true;
             pc.haveFaceDownPileOption = false;
+            GameplayUI.gUI.buzzerCountText.text = "1";
         }
     }
 }

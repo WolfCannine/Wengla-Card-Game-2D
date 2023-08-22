@@ -12,6 +12,7 @@ public class GameplayUI : MonoBehaviour
     public GameObject finishButtonGO;
     public GameObject exposeButtonGO;
     public GameObject notificationParentGO;
+    public TextMeshProUGUI buzzerCountText;
     public TextMeshProUGUI notificationText;
     public Sprite selectedCardDefaultSprite;
     public Image selectedCardImage;
@@ -47,7 +48,6 @@ public class GameplayUI : MonoBehaviour
         }
         else
         {
-            exposeButtonGO.SetActive(false);
             GameController.gc.players[0].ExposeCard();
         }
     }
