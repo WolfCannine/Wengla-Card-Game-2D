@@ -1,5 +1,3 @@
-//Implement a CardManager script to manage the deck, shuffling, dealing, and drawing cards.
-// Dealer
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +20,6 @@ public class CardManager : MonoBehaviour
     [SerializeField]
     private List<int> discardPile;
     private int ID = 0;
-    private GameplayUI gUI;
-    private GameController gc;
     private int randomPlayer;
 
     private void Awake()
@@ -31,37 +27,32 @@ public class CardManager : MonoBehaviour
         cm = this;
     }
 
-    private IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(3);
-        gUI = GameplayUI.gUI;
-        gc = GameController.gc;
         Invoke(nameof(ShuffleCards), 0f);
     }
 
     public void ShuffleCards()
     {
-        gUI.CallNotification("Dealer is Shufling Cards!");
+        GameplayUI.gUI.CallNotification("Dealer is Shufling Cards!", resetText: false);
         Helper.Shuffle(playerCardsIDs);
         Invoke(nameof(DealCards), 0f);
-        //GameplayUI.gUI.ActivateDealCardButton();
     }
 
     public void DealCards()
     {
-        gUI.CallNotification("Dealer is Assigning Cards!");
-        //GameplayUI.gUI.dealButtonGO.SetActive(false);
+        GameplayUI.gUI.CallNotification("Dealer is Assigning Cards!", resetText: false);
         _ = StartCoroutine(AssignCardsToHand());
     }
 
     public void AssignBeginnerCard()
     {
-        gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
-        gc.ResetBuzzerOption();
-        gc.SetPlayerTurn(randomPlayer);
-        PlayerController randomPlayerController = gc.players[randomPlayer];
+        GameController.gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
+        GameController.gc.ResetBuzzerOption();
+        GameController.gc.SetPlayerTurn(randomPlayer);
+        CardController randomPlayerController = GameController.gc.players[randomPlayer];
         randomPlayerController.AssignBeginnerCard(playerCardsIDs[ID]);
-        gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayerController.playerName, 5);
+        GameplayUI.gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayerController.playerName, resetText: false);
         Invoke(nameof(NotifyForSorting), 5);
         ID++;
         SetFaceDownPile();
@@ -80,10 +71,10 @@ public class CardManager : MonoBehaviour
                 currentCard++;
                 ID++;
             }
-            gc.players[currentPlayer].AssignCardID_List(cradID_List);
+            GameController.gc.players[currentPlayer].AssignCardID_List(cradID_List);
             currentPlayer++;
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f);
         AssignBeginnerCard();
     }
 
@@ -121,15 +112,15 @@ public class CardManager : MonoBehaviour
 
     private IEnumerator TimerRoutine(int time)
     {
-        gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
+        GameplayUI.gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
         while (time > 0)
         {
             yield return new WaitForSeconds(1);
             time--;
-            gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
+            GameplayUI.gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
         }
         string playerName = GameController.gc.players[randomPlayer].playerName;
-        gUI.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
-        gc.players[randomPlayer].Discard_a_Card();
+        GameplayUI.gUI.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
+        GameController.gc.players[randomPlayer].Discard_a_Card();
     }
 }

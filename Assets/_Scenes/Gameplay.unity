@@ -623,8 +623,9 @@ GameObject:
   m_Component:
   - component: {fileID: 73575477}
   - component: {fileID: 73575478}
+  - component: {fileID: 73575479}
   m_Layer: 0
-  m_Name: Player Controller (9)
+  m_Name: CardController (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,6 +676,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &73575479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73575476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &88009348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5842,8 +5855,9 @@ GameObject:
   m_Component:
   - component: {fileID: 633615842}
   - component: {fileID: 633615843}
+  - component: {fileID: 633615844}
   m_Layer: 0
-  m_Name: Player Controller (2)
+  m_Name: CardController (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5894,6 +5908,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &633615844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639195978
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,8 +7218,9 @@ GameObject:
   m_Component:
   - component: {fileID: 816320751}
   - component: {fileID: 816320752}
+  - component: {fileID: 816320753}
   m_Layer: 0
-  m_Name: Player Controller (1)
+  m_Name: CardController (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7244,6 +7271,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &816320753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816320750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &816817739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 302155280510860521, guid: 6398ab548878cbb40b4c3e2d055d8b7a, type: 3}
@@ -8746,6 +8785,8 @@ MonoBehaviour:
   exposeCardID: -1
   buzzerCallerID: -1
   playerTurnNumber: -1
+  firstPlayerNumber: 0
+  previousTurnNumber: 0
   centerPlace: {fileID: 1460492040}
   dealtCardPlace: {fileID: 1947253605}
   cards:
@@ -8926,8 +8967,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1021038691}
   - component: {fileID: 1021038692}
+  - component: {fileID: 1021038693}
   m_Layer: 0
-  m_Name: Player Controller (6)
+  m_Name: CardController (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8978,6 +9020,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &1021038693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021038690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1028069423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9073,8 +9127,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1028647988}
   - component: {fileID: 1028647989}
+  - component: {fileID: 1028647990}
   m_Layer: 0
-  m_Name: Player Controller (5)
+  m_Name: CardController (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9125,6 +9180,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &1028647990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028647987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1030276747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11865,8 +11932,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1303439951}
   - component: {fileID: 1303439952}
+  - component: {fileID: 1303439953}
   m_Layer: 0
-  m_Name: Player Controller (4)
+  m_Name: CardController (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11917,6 +11985,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &1303439953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303439950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1312482190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14717,8 +14797,8 @@ MonoBehaviour:
   cardsPerPlayer: 12
   cardsParentGO: {fileID: 433666965}
   faceDownPilePlaceGO: {fileID: 4654188909633576657}
-  playerCardsIDs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f00000080000000810000008200000083000000840000008500000086000000870000008800000089000000
   faceDownPile: 
+  playerCardsIDs: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f00000080000000810000008200000083000000840000008500000086000000870000008800000089000000
   discardPile: 
 --- !u!1001 &1674018893
 PrefabInstance:
@@ -16641,8 +16721,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1877754057}
   - component: {fileID: 1877754058}
+  - component: {fileID: 1877754059}
   m_Layer: 0
-  m_Name: Player Controller (7)
+  m_Name: CardController (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16693,6 +16774,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &1877754059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877754056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1888198119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16959,7 +17052,7 @@ GameObject:
   - component: {fileID: 1911632537}
   - component: {fileID: 1911632538}
   m_Layer: 0
-  m_Name: Player Controller (0)
+  m_Name: CardController (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17952,8 +18045,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2033981261}
   - component: {fileID: 2033981262}
+  - component: {fileID: 2033981263}
   m_Layer: 0
-  m_Name: Player Controller (8)
+  m_Name: CardController (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18004,6 +18098,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &2033981263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033981260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2035130058
 GameObject:
   m_ObjectHideFlags: 0
@@ -18876,8 +18982,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2130591792}
   - component: {fileID: 2130591793}
+  - component: {fileID: 2130591794}
   m_Layer: 0
-  m_Name: Player Controller (3)
+  m_Name: CardController (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18928,6 +19035,18 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
+--- !u!114 &2130591794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130591791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2144284069
 PrefabInstance:
   m_ObjectHideFlags: 0

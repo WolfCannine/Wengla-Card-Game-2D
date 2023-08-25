@@ -10,4 +10,6 @@ public class Card : MonoBehaviour
     public Cell cell;
     public CardSuit cardSuit;
     public CardCorners cardCorners;
+
+    public int Rank { get; set; }
 }

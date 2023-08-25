@@ -63,3 +63,102 @@ public class TransformSet
         this.scale = scale;
     }
 }
+
+public class CombinationRule
+{
+    public string CombinationType { get; }
+
+    public CombinationRule(string combinationType)
+    {
+        CombinationType = combinationType;
+    }
+}
+
+[Serializable]
+public class CombinationRule1
+{
+    public string CombinationType { get; }
+    public int NumberOfCardsRequired { get; }
+    public Func<List<Card>, bool> CheckCondition { get; }
+    public Action<List<Card>> Action { get; }
+
+    public CombinationRule1 (string combinationType, int numberOfCardsRequired, Func<List<Card>, bool> checkCondition, Action<List<Card>> action)
+    {
+        CombinationType = combinationType;
+        NumberOfCardsRequired = numberOfCardsRequired;
+        CheckCondition = checkCondition;
+        Action = action;
+    }
+
+    //#region Define Rule
+    //List<CombinationRule> pairRules = new()
+    //{
+    //    new CombinationRule("Pair", 2, (hand) => HasPair(hand), (hand) => CollectPair(hand)),
+    //    new CombinationRule("Triplet", 3, (hand) => HasTriplet(hand), (hand) => CollectTriplet(hand))
+    //};
+
+    //private void AILogic(List<Card> aiHand)
+    //{
+    //    foreach (CombinationRule rule in pairRules)
+    //    {
+    //        if (rule.CheckCondition(aiHand))
+    //        {
+    //            rule.Action(aiHand);
+    //            break;
+    //        }
+    //    }
+    //}
+
+    //private static bool HasPair(List<Card> hand)
+    //{
+    //    var rankCounts = new Dictionary<int, int>();
+    //    foreach (var card in hand)
+    //    {
+    //        if (!rankCounts.ContainsKey(card.Rank))
+    //        {
+    //            rankCounts[card.Rank] = 1;
+    //        }
+    //        else
+    //        {
+    //            rankCounts[card.Rank]++;
+    //            if (rankCounts[card.Rank] == 2)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //    }
+    //    return false;
+    //}
+
+    //private static bool HasTriplet(List<Card> hand)
+    //{
+    //    var rankCounts = new Dictionary<int, int>();
+    //    foreach (var card in hand)
+    //    {
+    //        if (!rankCounts.ContainsKey(card.Rank))
+    //        {
+    //            rankCounts[card.Rank] = 1;
+    //        }
+    //        else
+    //        {
+    //            rankCounts[card.Rank]++;
+    //            if (rankCounts[card.Rank] == 2)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //    }
+    //    return false;
+    //}
+
+    //private static void CollectPair(List<Card> hand)
+    //{
+
+    //}
+
+    //private static void CollectTriplet(List<Card> hand)
+    //{
+
+    //}
+    //#endregion
+}

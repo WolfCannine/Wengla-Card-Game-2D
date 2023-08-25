@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +10,13 @@ public class GameController : MonoBehaviour
     public int buzzerCallerID;
     public int playerTurnNumber;
     public int firstPlayerNumber;
+    public int previousTurnNumber;
     public Coroutine turnRoutine;
     public Transform centerPlace;
     public Transform dealtCardPlace;
     public List<Card> cards;
     public List<Transform> cardPlaces;
-    public List<PlayerController> players;
+    public List<CardController> players;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class GameController : MonoBehaviour
 
     public void SetPlayerTurn(int current = -1)
     {
-        if (playerTurnNumber == firstPlayerNumber)
+        if (playerTurnNumber == ((firstPlayerNumber - 1) % players.Count))
         {
             ResetBuzzerOption();
             return;
@@ -48,12 +50,35 @@ public class GameController : MonoBehaviour
 
     public void ResetBuzzerOption()
     {
-        playerTurnNumber = 0;
-        foreach (PlayerController pc in players)
+        playerTurnNumber = firstPlayerNumber;
+        foreach (CardController pc in players)
         {
             pc.haveBuzzerOption = true;
             pc.haveFaceDownPileOption = false;
             GameplayUI.gUI.buzzerCountText.text = "1";
         }
+    }
+
+    public void ExposeCardOnTable(int cardID, bool pickable = false)
+    {
+        cards[cardID].pickable = pickable;
+        cards[cardID].gameObject.SetActive(true);
+        cards[cardID].transform.SetPositionAndRotation(centerPlace.position, centerPlace.rotation);
+        cards[cardID].transform.localScale = centerPlace.localScale;
+    }
+
+    public void SetTurnText()
+    {
+        players[playerTurnNumber].SetTurnText();
+    }
+
+    public void ResetTurnText(int playerNumber)
+    {
+        players[playerNumber].ResetTurnText();
+    }
+
+    public void SetCardPickable(int cardId, bool pickable = false)
+    {
+        cards[cardId].pickable = pickable;
     }
 }
