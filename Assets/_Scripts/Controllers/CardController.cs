@@ -319,9 +319,8 @@ public class CardController : MonoBehaviour
         while (time > 0)
         {
             if (time == 5) { NotifyTurnPlayer(); }
-            if (randomBuzzerTime == time && cardAI.IsImportant)
+            if (randomBuzzerTime == time && cardAI.IsImportant(out aiExposeCardID))
             {
-                aiExposeCardID = cardAI.ExposeCardID();
                 BuzzerCall();
                 Gc.turnRoutine = null;
                 yield break;
