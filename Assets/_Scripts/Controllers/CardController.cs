@@ -23,7 +23,6 @@ public class CardController : MonoBehaviour
     public TextMeshProUGUI playerTimerText;
     public List<int> cardID_List;
 
-
     private int aiExposeCardID;
     [SerializeField]
     private int previousExposeCardID;
@@ -59,6 +58,7 @@ public class CardController : MonoBehaviour
         {
             this.cardID_List.Sort();
         }
+        //if (cardAI) { cardAI.CheckAllCombinations(); }
     }
 
     public void AssignBeginnerCard(int cardID)
@@ -74,7 +74,15 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            exposeCardID = exposeCardID != -1 && exposeCardID < 10 ? cardID_List.LastOrDefault() : exposeCardID;
+            /*
+             * Start Thinking of AI
+             * Check if beginner card is important
+             * if not then discard the beginner card
+             * otherwise check the other card which one is not forming
+             * any kind of combination then discard that card
+             */
+            cardAI.FindCardAgainstBeginnerCard(cardID);
+            //exposeCardID = exposeCardID != -1 && exposeCardID < 10 ? cardID_List.LastOrDefault() : exposeCardID;
         }
     }
 
@@ -316,6 +324,10 @@ public class CardController : MonoBehaviour
     private IEnumerator TurnSetRoutine(int time = 10)
     {
         int randomBuzzerTime = playerNumber != 0 ? UnityEngine.Random.Range(1, time - 1) : 0;
+        if (playerNumber != 0)
+        {
+
+        }
         while (time > 0)
         {
             if (time == 5) { NotifyTurnPlayer(); }

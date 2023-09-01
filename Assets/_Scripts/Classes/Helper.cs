@@ -67,6 +67,7 @@ public class TransformSet
 [Serializable]
 public class TwinCombination
 {
+    //public int[] cardIDs = new int[2];
     public int CardNumber { get; set; }
     public CardSuit CardSuit { get; set; }
 }
@@ -74,6 +75,7 @@ public class TwinCombination
 [Serializable]
 public class TripletCombination
 {
+    //public int[] cardIDs = new int[3];
     public int CardNumber { get; set; }
     public CardSuit CardSuit { get; set; }
 }
@@ -81,6 +83,21 @@ public class TripletCombination
 [Serializable]
 public class QuadrupletCombination
 {
+    //public int[] cardIDs = new int[4];
     public int CardNumber { get; set; }
     public CardSuit CardSuit { get; set; }
+}
+
+[Serializable]
+public class StreetCombination
+{
+    //public int[] cardIDs = new int[6];
+    public CardSuit CardSuit { get; set; }
+}
+
+[Serializable]
+public class WenglaCombination
+{
+    //public int[] cardIDs = new int[12];
+    public int CardNumber { get; set; }
 }

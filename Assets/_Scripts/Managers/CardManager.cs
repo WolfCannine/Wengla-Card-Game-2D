@@ -52,9 +52,9 @@ public class CardManager : MonoBehaviour
         GameController.gc.SetPlayerTurn(randomPlayer);
         CardController randomPlayerController = GameController.gc.players[randomPlayer];
         randomPlayerController.AssignBeginnerCard(playerCardsIDs[ID]);
+        ID++;
         GameplayUI.gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayerController.playerName, resetText: false);
         Invoke(nameof(NotifyForSorting), 5);
-        ID++;
         SetFaceDownPile();
     }
 
