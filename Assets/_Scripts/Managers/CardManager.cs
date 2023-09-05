@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
+    #region Fields
     public static CardManager cm;
     public int colorCount = 4;
     public int cornerType = 4;
@@ -21,6 +22,9 @@ public class CardManager : MonoBehaviour
     private List<int> discardPile;
     private int ID = 0;
     private int randomPlayer;
+    private GameController Gc => GameController.gc;
+    private GameplayUI Gui => GameplayUI.gUI;
+    #endregion
 
     private void Awake()
     {
@@ -34,48 +38,43 @@ public class CardManager : MonoBehaviour
 
     public void ShuffleCards()
     {
-        GameplayUI.gUI.CallNotification("Dealer is Shufling Cards!", resetText: false);
+        Gui.CallNotification("Dealer is Shufling Cards!", resetText: false);
         Helper.Shuffle(playerCardsIDs);
         Invoke(nameof(DealCards), 0f);
     }
 
     public void DealCards()
     {
-        GameplayUI.gUI.CallNotification("Dealer is Assigning Cards!", resetText: false);
+        Gui.CallNotification("Dealer is Assigning Cards!", resetText: false);
         _ = StartCoroutine(AssignCardsToHand());
     }
 
     public void AssignBeginnerCard()
     {
-        GameController.gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
-        GameController.gc.ResetBuzzerOption();
-        GameController.gc.SetPlayerTurn(randomPlayer);
-        CardController randomPlayerController = GameController.gc.players[randomPlayer];
+        Gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
+        Gc.ResetBuzzerOption();
+        Gc.SetPlayerTurn(randomPlayer);
+        CardController randomPlayerController = Gc.players[randomPlayer];
         randomPlayerController.AssignBeginnerCard(playerCardsIDs[ID]);
         ID++;
-        GameplayUI.gUI.CallNotification("Beginner Card is Assign to Player: " + randomPlayerController.playerName, resetText: false);
-        Invoke(nameof(NotifyForSorting), 5);
+        Gc.sortingRoutine = StartCoroutine(SortingRoutine(Gc.sortingTime));
         SetFaceDownPile();
+        PromptForReady();
     }
 
-    private IEnumerator AssignCardsToHand()
+    public void AllPlayersReady()
     {
-        int currentPlayer = 0;
-        while (currentPlayer < numberOfPlayers)
+        string playerName = Gc.players[randomPlayer].playerName;
+        Gui.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
+        Gc.players[randomPlayer].Discard_a_Card();
+    }
+
+    private void PromptForReady()
+    {
+        foreach (CardController cc in Gc.players)
         {
-            int currentCard = 0;
-            List<int> cradID_List = new();
-            while (currentCard < cardsPerPlayer)
-            {
-                cradID_List.Add(playerCardsIDs[ID]);
-                currentCard++;
-                ID++;
-            }
-            GameController.gc.players[currentPlayer].AssignCardID_List(cradID_List);
-            currentPlayer++;
+            cc.StartReadyRoutine();
         }
-        yield return new WaitForSeconds(0f);
-        AssignBeginnerCard();
     }
 
     private void SetFaceDownPile()
@@ -92,7 +91,7 @@ public class CardManager : MonoBehaviour
     {
         foreach (int i in faceDownPile)
         {
-            GameObject cardGO = GameController.gc.cards[i].gameObject;
+            GameObject cardGO = Gc.cards[i].gameObject;
             cardGO.transform.position = faceDownPilePlaceGO.transform.position;
             cardGO.transform.localScale = faceDownPilePlaceGO.transform.localScale;
             cardGO.SetActive(true);
@@ -105,22 +104,42 @@ public class CardManager : MonoBehaviour
         if (faceDownPile.Contains(cardID)) { _ = faceDownPile.Remove(cardID); }
     }
 
-    private void NotifyForSorting()
+    private IEnumerator AssignCardsToHand()
     {
-        _ = StartCoroutine(TimerRoutine(5));
+        int currentPlayer = 0;
+        numberOfPlayers = Gc.players.Count;
+        while (currentPlayer < numberOfPlayers)
+        {
+            int currentCard = 0;
+            List<int> cradID_List = new();
+            while (currentCard < cardsPerPlayer)
+            {
+                cradID_List.Add(playerCardsIDs[ID]);
+                currentCard++;
+                ID++;
+            }
+            Gc.players[currentPlayer].AssignCardID_List(cradID_List);
+            currentPlayer++;
+        }
+        yield return new WaitForSeconds(0f);
+        AssignBeginnerCard();
     }
 
-    private IEnumerator TimerRoutine(int time)
+    private IEnumerator SortingRoutine(int time)// Time for sorting cards
     {
-        GameplayUI.gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
+        string playerName = Gc.players[randomPlayer].playerName;
+        Gui.CallNotification("Beginner Card is Assign to Player: " + playerName, resetText: false);
+        yield return new WaitForSeconds(5);
+        Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
         while (time > 0)
         {
             yield return new WaitForSeconds(1);
             time--;
-            GameplayUI.gUI.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
+            Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
         }
-        string playerName = GameController.gc.players[randomPlayer].playerName;
-        GameplayUI.gUI.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
-        GameController.gc.players[randomPlayer].Discard_a_Card();
+        Gui.AreYouReadyButton();
+        Gui.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
+        Gc.players[randomPlayer].Discard_a_Card();
+        Gc.sortingRoutine = null;
     }
 }

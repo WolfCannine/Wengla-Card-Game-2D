@@ -8,23 +8,27 @@ using UnityEngine;
  * quadruplets amount: 4, number: same, suit: same      4 cards with same number and suit
  * street amount: 8, number: 1 to 8 All, suit: same     8 cards from 1 to 8 with same suit
  * wengla amount: 12, number: same, suit: different     12 cards of same number
+ * 
+ * take linear approch
+ * 
+ * 
  */
-public class CardAI : MonoBehaviour
+public class IntelligentCard : MonoBehaviour
 {
     private CardController cc;
     private Coroutine checkCombinationRoutine;
     private GameController Gc => GameController.gc;
 
-    public bool haveStreetCombination;
-    public bool haveWenglaCombination;
-    public int WenglaCombinationNumber;
-    public CardSuit streetCombinationSuit;
+    public bool haveStreet;
+    public bool haveWengla;
+    public int WenglaNumber;
+    public CardSuit streetSuit;
+    public List<Twin> foundTwins = new();
+    public List<Triplet> foundTriplets = new();
+    public List<Quadruplet> foundQuadruplets = new();
+    public Street foundStreet;
+    public Wengla foundWengla;
     public Dictionary<CardSuit, List<int>> suitCardIDs = new();
-    public List<TwinCombination> foundTwins = new();
-    public List<TripletCombination> foundTriplets = new();
-    public List<QuadrupletCombination> foundQuadruplets = new();
-    public StreetCombination foundStreet;
-    public WenglaCombination foundWengla;
 
     private bool findCard;
     private int cardToExpose = -1;
@@ -43,17 +47,8 @@ public class CardAI : MonoBehaviour
      */
     public void FindCardAgainstBeginnerCard(int beginnerCardID = -1)
     {
-        if (beginnerCardID < 10)
-        {
-            // Directly find the descarding card
-            findCard = true;
-            CheckAllCombinations();
-        }
-        else
-        {
-            // Check if beginner is important then discard a less important card
-            CheckImportanceOfCard();
-        }
+        findCard = true;
+        CheckAllCombinations();
     }
 
     public void FindCardToDiscard()
@@ -63,7 +58,7 @@ public class CardAI : MonoBehaviour
 
     public void CheckImportanceOfCard()
     {
-
+        _ = StartCoroutine(FindCardToDiscardRoutine());
     }
 
     public void CheckAllCombinations()
@@ -108,8 +103,8 @@ public class CardAI : MonoBehaviour
         bool quadrupletExist = foundQuadruplets.Any(quad => quad.CardNumber == require);
         bool tripletExist = foundTriplets.Any(triple => triple.CardNumber == require);
         bool twinExist = foundTwins.Any(twin => twin.CardNumber == require);
-        cardID = cc.cardID_List.LastOrDefault();
-        return twinExist || tripletExist || quadrupletExist;
+        cardID = cardToExpose;
+        return (twinExist || tripletExist || quadrupletExist) && cardID != -1;
     }
 
     //2 cards with same number and suit
@@ -259,7 +254,7 @@ public class CardAI : MonoBehaviour
         return true;
     }
 
-    private int SetFirstCardNumber(out int count)
+    private int SetFirstCardNumber(out int count) // for HaveWengla func
     {
         int j = 0;
         foreach (int i in cc.cardID_List)
@@ -280,9 +275,9 @@ public class CardAI : MonoBehaviour
         SetSuitList();
 
         yield return new WaitForSeconds(0.3f);// For Wengla!!!!!!!!!!!!
-        haveWenglaCombination = HaveWengla(out WenglaCombinationNumber);
-        foundWengla = new WenglaCombination { CardNumber = WenglaCombinationNumber };
-        if (haveWenglaCombination)
+        haveWengla = HaveWengla(out WenglaNumber);
+        foundWengla = new Wengla { CardNumber = WenglaNumber };
+        if (haveWengla)
         {
             Debug.Log(cc.playerName + " won!");
             yield break;
@@ -298,30 +293,30 @@ public class CardAI : MonoBehaviour
 
             if (HaveStreet(suit))
             {
-                haveStreetCombination = true;
-                streetCombinationSuit = suit;
-                foundStreet = new StreetCombination { CardSuit = suit };
+                haveStreet = true;
+                streetSuit = suit;
+                foundStreet = new Street { CardSuit = suit };
             }
 
             yield return new WaitForSeconds(0.3f);// For Quadruplets!!!!!!!!!!!!
 
             if (HaveQuadruplets(out int number, suit))
             {
-                foundQuadruplets.Add(new QuadrupletCombination { CardNumber = number, CardSuit = suit });
+                foundQuadruplets.Add(new Quadruplet { CardNumber = number, CardSuit = suit });
             }
 
             yield return new WaitForSeconds(0.3f);// For Triplets!!!!!!!!!!!!
 
             if (HaveTriplets(out number, suit))
             {
-                foundTriplets.Add(new TripletCombination { CardNumber = number, CardSuit = suit });
+                foundTriplets.Add(new Triplet { CardNumber = number, CardSuit = suit });
             }
 
             yield return new WaitForSeconds(0.3f);// For Twins!!!!!!!!!!!!
 
             if (HaveTwins(out number, suit))
             {
-                foundTwins.Add(new TwinCombination { CardNumber = number, CardSuit = suit });
+                foundTwins.Add(new Twin { CardNumber = number, CardSuit = suit });
             }
 
             yield return new WaitForSeconds(0.3f);
@@ -334,9 +329,10 @@ public class CardAI : MonoBehaviour
 
     private IEnumerator FindCardToDiscardRoutine()
     {
+        int cardId = -1;
         foreach (int id in cc.cardID_List)
         {
-            if (haveStreetCombination)
+            if (haveStreet)
             {
                 yield return new WaitForSeconds(0.2f);
                 continue;
@@ -353,6 +349,7 @@ public class CardAI : MonoBehaviour
             }
             else if (CheckTwin(id))
             {
+                cardId = id;
                 yield return new WaitForSeconds(0.2f);
                 continue;
             }
@@ -362,6 +359,7 @@ public class CardAI : MonoBehaviour
                 yield break;
             }
         }
+        cardToExpose = cardId;
         yield return new WaitForSeconds(1);
     }
 
@@ -371,13 +369,9 @@ public class CardAI : MonoBehaviour
         {
             return false;
         }
-        foreach (QuadrupletCombination qc in foundQuadruplets)
+        foreach (Quadruplet qc in foundQuadruplets)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit)
-            {
-                return true;
-            }
-            else if (qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }
@@ -391,13 +385,9 @@ public class CardAI : MonoBehaviour
         {
             return false;
         }
-        foreach (TripletCombination qc in foundTriplets)
+        foreach (Triplet qc in foundTriplets)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit)
-            {
-                return true;
-            }
-            else if (qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }
@@ -411,13 +401,9 @@ public class CardAI : MonoBehaviour
         {
             return false;
         }
-        foreach (TwinCombination qc in foundTwins)
+        foreach (Twin qc in foundTwins)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit)
-            {
-                return true;
-            }
-            else if (qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }

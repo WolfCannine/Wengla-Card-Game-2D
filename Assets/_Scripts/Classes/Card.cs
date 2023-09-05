@@ -9,7 +9,6 @@ public class Card : MonoBehaviour
     public int cardNumber;
     public Cell cell;
     public CardSuit cardSuit;
+    public CardColor cardColor;
     public CardCorners cardCorners;
-
-    public int Rank { get; set; }
 }

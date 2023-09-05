@@ -7,15 +7,17 @@ public class GameplayUI : MonoBehaviour
 {
     public static GameplayUI gUI;
     public GameObject startGamePanel;
-    public GameObject shuffleButtonGO;
+    public Image selectedCardImage;
     public GameObject dealButtonGO;
+    public GameObject readyButtonGO;
     public GameObject finishButtonGO;
     public GameObject exposeButtonGO;
+    public GameObject shuffleButtonGO;
     public GameObject notificationParentGO;
     public TextMeshProUGUI buzzerCountText;
     public TextMeshProUGUI notificationText;
     public Sprite selectedCardDefaultSprite;
-    public Image selectedCardImage;
+    private GameController Gc => GameController.gc;
 
     private void Awake()
     {
@@ -40,21 +42,28 @@ public class GameplayUI : MonoBehaviour
         if (resetText) { Invoke(nameof(ResetText), notificationDisableTime); }
     }
 
+    public void AreYouReadyButton()
+    {
+        readyButtonGO.SetActive(false);
+        Gc.players[0].ready = true;
+        Gc.CheckIfAllPlayersReady();
+    }
+
     public void ExposeCard()
     {
-        if (TouchManager.tm.selectedCard == null && !GameController.gc.players[0].haveBeginnerCard)
+        if (TouchManager.tm.selectedCard == null && !Gc.players[0].haveBeginnerCard)
         {
             CallNotification("Plaese select a Card then press Expose Button!", 4);
         }
         else
         {
-            GameController.gc.players[0].ExposeCard();
+            Gc.players[0].ExposeCard();
         }
     }
 
     public void BuzzerButton()
     {
-        GameController.gc.players[0].BuzzerCall();
+        Gc.players[0].BuzzerCall();
     }
 
     public void RestartButton()
@@ -76,6 +85,6 @@ public class GameplayUI : MonoBehaviour
 
     private void ResetText()
     {
-        notificationText.text = "";
+        //notificationText.text = "";
     }
 }

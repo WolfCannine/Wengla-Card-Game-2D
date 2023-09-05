@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,22 +5,55 @@ public class GameController : MonoBehaviour
 {
     public static GameController gc;
     public bool allowBuzzer;
+    public int sortingTime;
     public int exposeCardID;
     public int buzzerCallerID;
     public int playerTurnNumber;
     public int firstPlayerNumber;
     public int previousTurnNumber;
     public Coroutine turnRoutine;
+    public Coroutine sortingRoutine;
     public Transform centerPlace;
     public Transform dealtCardPlace;
     public List<Card> cards;
     public List<Transform> cardPlaces;
     public List<CardController> players;
+    private CardManager Cm => CardManager.cm;
+    private GameplayUI Gui => GameplayUI.gUI;
 
     private void Awake()
     {
         gc = this;
         for (int i = 0; i < 138; i++) { cards[i].cardID = i; }
+    }
+
+    public void CheckIfAllPlayersReady()
+    {
+        foreach (CardController cc in players)
+        {
+            if (!cc.ready)
+            {
+                return;
+            }
+        }
+        StopSortRoutine();
+    }
+
+    public void StopSortRoutine()
+    {
+        if (sortingRoutine == null) { return; }
+        StopCoroutine(sortingRoutine);
+        Cm.AllPlayersReady();
+        sortingRoutine = null;
+        ResetReadyText();
+    }
+
+    private void ResetReadyText()
+    {
+        foreach (CardController cc in players)
+        {
+            cc.ResetReadyText();
+        }
     }
 
     public void ExposeCardID(int cardID = -1)
@@ -82,3 +114,22 @@ public class GameController : MonoBehaviour
         cards[cardId].pickable = pickable;
     }
 }
+
+/*
+ * TODO
+ * 
+ * shuffle cards ..
+ * assign cards ..
+ * 13th assign ..
+ * give time for soting ..
+ * run 60 sec routine ..
+ * randomly set ready by each player ..
+ * think about card discard by the player with 13th card .
+ * if all player ready start game..
+ * if the human player not set ready make him ready after 60 sec ..
+ * 
+ * after game start
+ * 
+ * set turn time for player with 13th 20 sce card he will discard a card
+ * 
+ */

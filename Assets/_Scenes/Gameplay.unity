@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8240539319280827470, guid: 5e26163b23cb20543a9cf7cfb53fab61, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -339,6 +343,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148166531186548914, guid: efa978facbc3e4f42bca1a592e314ad1, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -423,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 3596754585722266196, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873468737197423780, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -662,13 +674,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 9
-  playerNumber: 9
   exposeCardID: -1
+  playerNumber: 9
+  playerName: AI 9
   redSprite: {fileID: 1750761511}
   timerText: {fileID: 1101806756}
   numberText: {fileID: 1101806757}
@@ -676,10 +689,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &73575479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,10 +701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -750,6 +759,10 @@ PrefabInstance:
     - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8395760598680483830, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: m_Name
@@ -995,6 +1008,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6930972377455009948, guid: 195cf81481035934b902e0e4a03d5b38, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1079,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 4173010155061664152, guid: 3890f8963e5324f4a9e75dd967f23cd2, type: 3}
       propertyPath: m_TagString
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588630896328435937, guid: 3890f8963e5324f4a9e75dd967f23cd2, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1169,6 +1190,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4769971092953887992, guid: 3b9ace2de8299584b97d2097df9e4ff5, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1258,6 +1283,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6930972377455009948, guid: 195cf81481035934b902e0e4a03d5b38, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1343,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5953327117829011836, guid: 7bbef236b4bd9c146a8787df22b6664f, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1375,6 +1408,10 @@ PrefabInstance:
     - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4359994874049742972, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: m_Name
@@ -1504,6 +1541,10 @@ PrefabInstance:
     - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8395760598680483830, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: m_Name
@@ -1663,6 +1704,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8776735784057622969, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 3 (3)
@@ -1708,6 +1753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 1931052428915559643, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5259515456111377380, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -1985,6 +2034,10 @@ PrefabInstance:
     - target: {fileID: 4769971092953887992, guid: 3b9ace2de8299584b97d2097df9e4ff5, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769971092953887992, guid: 3b9ace2de8299584b97d2097df9e4ff5, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2274,6 +2327,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 8588630896328435937, guid: 3890f8963e5324f4a9e75dd967f23cd2, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2303,6 +2360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 3862997833812229197, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7470861085044640626, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -2553,6 +2614,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037287447173258125, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7632828726915842238, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 1 (3)
@@ -2598,6 +2663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 1443724797745980683, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5235213743086009339, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -2683,6 +2752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 2054553149262799333, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5670816669331822298, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -2812,6 +2885,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037287447173258125, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7632828726915842238, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 1 (1)
@@ -2917,6 +2994,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7807278300770106604, guid: 59e0e6e8fb1e7dd40993671fab55774b, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2980,6 +3061,10 @@ PrefabInstance:
     - target: {fileID: 534737434671419884, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 534737434671419884, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4417544590046333663, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
       propertyPath: m_Name
@@ -3070,6 +3155,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6680942911702977408, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: m_Name
       value: Card Red Triangle Variant 7 (1)
@@ -3155,6 +3244,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 4169459665755140613, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7776891899842676026, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -3256,6 +3349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 4169459665755140613, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7776891899842676026, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -3384,6 +3481,10 @@ PrefabInstance:
     - target: {fileID: 5794503061585636996, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794503061585636996, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7660539876376393143, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
       propertyPath: m_Name
@@ -3847,6 +3948,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 1443724797745980683, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5235213743086009339, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -3935,6 +4040,10 @@ PrefabInstance:
     - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5736060356737277115, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: m_Name
@@ -4076,6 +4185,10 @@ PrefabInstance:
     - target: {fileID: 1489862748552910551, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088217406049772008, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4339,6 +4452,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2412634224104998023, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5946534867750511974, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 7 (0)
@@ -4427,6 +4544,10 @@ PrefabInstance:
     - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4359994874049742972, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: m_Name
@@ -4849,6 +4970,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4933,6 +5058,10 @@ PrefabInstance:
     - target: {fileID: 3596754585722266196, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873468737197423780, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5020,6 +5149,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 4169459665755140613, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7776891899842676026, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -5149,6 +5282,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5794503061585636996, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7660539876376393143, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 2 (3)
@@ -5213,6 +5350,10 @@ PrefabInstance:
     - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5631817686970617161, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5345,6 +5486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 2054553149262799333, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5670816669331822298, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -5486,6 +5631,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7451703638705525045, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5518,6 +5667,10 @@ PrefabInstance:
     - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6680942911702977408, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: m_Name
@@ -5660,6 +5813,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5482165683541630871, guid: e14a510ae9c25cd46bb6bfc24ff723b9, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5745,6 +5902,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5482165683541630871, guid: e14a510ae9c25cd46bb6bfc24ff723b9, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5774,6 +5935,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 1931052428915559643, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5259515456111377380, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -5859,6 +6024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 2054553149262799333, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5670816669331822298, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -5981,13 +6150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 2
-  playerNumber: 2
   exposeCardID: -1
+  playerNumber: 2
+  playerName: AI 2
   redSprite: {fileID: 2107504909}
   timerText: {fileID: 2107504910}
   numberText: {fileID: 2107504911}
@@ -5995,10 +6165,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &633615844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6011,10 +6177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -6227,6 +6393,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4769971092953887992, guid: 3b9ace2de8299584b97d2097df9e4ff5, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6256,6 +6426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2711873335212891940, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223888449283505861, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 6 (0)
@@ -6406,6 +6580,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7807278300770106604, guid: 59e0e6e8fb1e7dd40993671fab55774b, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6490,6 +6668,10 @@ PrefabInstance:
     - target: {fileID: 4605391706262683254, guid: e14a510ae9c25cd46bb6bfc24ff723b9, type: 3}
       propertyPath: m_TagString
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482165683541630871, guid: e14a510ae9c25cd46bb6bfc24ff723b9, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6580,6 +6762,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7807278300770106604, guid: 59e0e6e8fb1e7dd40993671fab55774b, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6612,6 +6798,10 @@ PrefabInstance:
     - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5736060356737277115, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: m_Name
@@ -6727,6 +6917,10 @@ PrefabInstance:
     - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5736060356737277115, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: m_Name
@@ -6989,6 +7183,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5794503061585636996, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7660539876376393143, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 2 (1)
@@ -7172,6 +7370,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2021981099913016889, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5736060356737277115, guid: 69d4f327f69e9d649b818d76cad9f52c, type: 3}
       propertyPath: m_Name
       value: Card Red Triangle Variant 3 (2)
@@ -7301,6 +7503,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037287447173258125, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7632828726915842238, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 1 (2)
@@ -7383,13 +7589,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 1
-  playerNumber: 1
   exposeCardID: -1
+  playerNumber: 1
+  playerName: AI 1
   redSprite: {fileID: 856491272}
   timerText: {fileID: 104473775}
   numberText: {fileID: 879869819}
@@ -7397,10 +7604,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &816320753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7413,10 +7616,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -7433,6 +7636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 3862997833812229197, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7470861085044640626, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -7611,6 +7818,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069033753919516127, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7735,6 +7946,10 @@ PrefabInstance:
     - target: {fileID: 3843875580434736650, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451703638705525045, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7950,6 +8165,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069033753919516127, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8163,6 +8382,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7873468737197423780, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8251,6 +8474,10 @@ PrefabInstance:
     - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8469,6 +8696,10 @@ PrefabInstance:
     - target: {fileID: 1489862748552910551, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088217406049772008, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8724,6 +8955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 1443724797745980683, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5235213743086009339, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -8865,6 +9100,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5953327117829011836, guid: 7bbef236b4bd9c146a8787df22b6664f, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8931,6 +9170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowBuzzer: 0
+  sortingTime: 60
   exposeCardID: -1
   buzzerCallerID: -1
   playerTurnNumber: -1
@@ -9151,13 +9391,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 6
-  playerNumber: 6
   exposeCardID: -1
+  playerNumber: 6
+  playerName: AI 6
   redSprite: {fileID: 5730408042209305755}
   timerText: {fileID: 1312482191}
   numberText: {fileID: 1312482192}
@@ -9165,10 +9406,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &1021038693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9181,10 +9418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -9215,6 +9452,10 @@ PrefabInstance:
     - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5631817686970617161, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9322,13 +9563,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 5
-  playerNumber: 5
   exposeCardID: -1
+  playerNumber: 5
+  playerName: AI 5
   redSprite: {fileID: 1030276749}
   timerText: {fileID: 1030276750}
   numberText: {fileID: 1030276751}
@@ -9336,10 +9578,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &1028647990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9352,10 +9590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -9521,6 +9759,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 8588630896328435937, guid: 3890f8963e5324f4a9e75dd967f23cd2, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9566,6 +9808,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 546960145657961422, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5282231641788951223, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
       propertyPath: m_Name
       value: Card Green Squre Variant 6 (1)
@@ -9651,6 +9897,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 1931052428915559643, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5259515456111377380, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -10106,6 +10356,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069033753919516127, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10219,6 +10473,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8395760598680483830, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 7 (2)
@@ -10324,6 +10582,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8240539319280827470, guid: 5e26163b23cb20543a9cf7cfb53fab61, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10408,6 +10670,10 @@ PrefabInstance:
     - target: {fileID: 3596754585722266196, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873468737197423780, guid: 6ab329c8fa8d836468ab7cd7f0e279ba, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10698,6 +10964,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5482165683541630871, guid: e14a510ae9c25cd46bb6bfc24ff723b9, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10727,6 +10997,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 1443724797745980683, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5235213743086009339, guid: a772b73309844944f9b1ca5b9cd98284, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -10851,6 +11125,10 @@ PrefabInstance:
     - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5522761461367347293, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10993,6 +11271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7451703638705525045, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11115,6 +11397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 3862997833812229197, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7470861085044640626, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -11426,6 +11712,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 534737434671419884, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4417544590046333663, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 8 (0)
@@ -11679,6 +11969,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2711873335212891940, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223888449283505861, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 6 (1)
@@ -11808,6 +12102,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037287447173258125, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7632828726915842238, guid: 977e5a69e72d84c4f88f5f9a26b2413f, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 1 (0)
@@ -11913,6 +12211,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8240539319280827470, guid: 5e26163b23cb20543a9cf7cfb53fab61, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11977,6 +12279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 3709738290950839114, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4649562740590836395, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 2 (3)
@@ -12162,13 +12468,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 4
-  playerNumber: 4
   exposeCardID: -1
+  playerNumber: 4
+  playerName: AI 4
   redSprite: {fileID: 1850414667}
   timerText: {fileID: 1850414668}
   numberText: {fileID: 1850414669}
@@ -12176,10 +12483,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &1303439953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12192,10 +12495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -12295,6 +12598,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2412634224104998023, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5946534867750511974, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 7 (3)
@@ -12446,6 +12753,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5088217406049772008, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12518,6 +12829,10 @@ PrefabInstance:
     - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8776735784057622969, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: m_Name
@@ -12623,6 +12938,10 @@ PrefabInstance:
     - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8776735784057622969, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: m_Name
@@ -12776,6 +13095,10 @@ PrefabInstance:
     - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6680942911702977408, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: m_Name
@@ -13107,6 +13430,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4893366649256561290, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8776735784057622969, guid: 7991b32938aa5d9408391cddb071140e, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 3 (2)
@@ -13212,6 +13539,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13241,6 +13572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 3862997833812229197, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7470861085044640626, guid: 92f3547d16d45e045ac9225716ef4c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -13411,6 +13746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 3709738290950839114, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4649562740590836395, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 2 (0)
@@ -13613,6 +13952,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8240539319280827470, guid: 5e26163b23cb20543a9cf7cfb53fab61, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13697,6 +14040,10 @@ PrefabInstance:
     - target: {fileID: 2405841973394086045, guid: 7bbef236b4bd9c146a8787df22b6664f, type: 3}
       propertyPath: m_TagString
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953327117829011836, guid: 7bbef236b4bd9c146a8787df22b6664f, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13820,6 +14167,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6930972377455009948, guid: 195cf81481035934b902e0e4a03d5b38, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13904,6 +14255,10 @@ PrefabInstance:
     - target: {fileID: 4583943909738413634, guid: efa978facbc3e4f42bca1a592e314ad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7148166531186548914, guid: efa978facbc3e4f42bca1a592e314ad1, type: 3}
+      propertyPath: cardColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14157,6 +14512,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5794503061585636996, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7660539876376393143, guid: 43e2419fa1d7f3044858147dce6332fe, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 2 (0)
@@ -14271,6 +14630,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2412634224104998023, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5946534867750511974, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 7 (2)
@@ -14416,6 +14779,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6930972377455009948, guid: 195cf81481035934b902e0e4a03d5b38, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14448,6 +14815,10 @@ PrefabInstance:
     - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5522761461367347293, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14569,6 +14940,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2711873335212891940, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223888449283505861, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 6 (2)
@@ -14658,6 +15033,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 534737434671419884, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4417544590046333663, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 8 (2)
@@ -14746,6 +15125,10 @@ PrefabInstance:
     - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090552490545422594, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6680942911702977408, guid: 720a5f66b2fc4124896488fed4029fa5, type: 3}
       propertyPath: m_Name
@@ -14876,6 +15259,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5667281448752295109, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8395760598680483830, guid: 940bce305f7991f4c81b7911330aa602, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 7 (0)
@@ -14980,6 +15367,10 @@ PrefabInstance:
     - target: {fileID: 7807278300770106604, guid: 59e0e6e8fb1e7dd40993671fab55774b, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807278300770106604, guid: 59e0e6e8fb1e7dd40993671fab55774b, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15086,6 +15477,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5631817686970617161, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15155,6 +15550,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 546960145657961422, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5282231641788951223, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
       propertyPath: m_Name
       value: Card Green Squre Variant 6 (3)
@@ -15358,6 +15757,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5953327117829011836, guid: 7bbef236b4bd9c146a8787df22b6664f, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15424,6 +15827,7 @@ RectTransform:
   - {fileID: 966777705}
   - {fileID: 254711244}
   - {fileID: 2092156501}
+  - {fileID: 2094491454}
   - {fileID: 958514520}
   - {fileID: 397218038}
   - {fileID: 58456192}
@@ -15634,6 +16038,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148166531186548914, guid: efa978facbc3e4f42bca1a592e314ad1, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15698,6 +16106,10 @@ PrefabInstance:
     - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000884437022504648, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5631817686970617161, guid: 754dba93a35310d42b62539f0bad5a22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15984,6 +16396,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4359994874049742972, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 5 (2)
@@ -16141,6 +16557,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5522761461367347293, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.27
@@ -16282,6 +16702,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 8588630896328435937, guid: 3890f8963e5324f4a9e75dd967f23cd2, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16366,6 +16790,10 @@ PrefabInstance:
     - target: {fileID: 1489862748552910551, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088217406049772008, guid: 96f14c25476d10740adaf38c5fdfe7de, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16456,6 +16884,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4769971092953887992, guid: 3b9ace2de8299584b97d2097df9e4ff5, type: 3}
+      propertyPath: cardColor
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16485,6 +16917,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 1931052428915559643, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5259515456111377380, guid: 3463ec10e98e5474697554ac05e90e34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -16688,6 +17124,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069033753919516127, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6914547719150130782, guid: 7e6c87feb783dd34e93497056c90950d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16757,6 +17197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 546960145657961422, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5282231641788951223, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
       propertyPath: m_Name
       value: Card Green Squre Variant 6 (0)
@@ -17038,13 +17482,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 7
-  playerNumber: 7
   exposeCardID: -1
+  playerNumber: 7
+  playerName: AI 7
   redSprite: {fileID: 1339440956}
   timerText: {fileID: 923298595}
   numberText: {fileID: 923298596}
@@ -17052,10 +17497,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &1877754059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17068,10 +17509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -17086,6 +17527,10 @@ PrefabInstance:
     - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: cardSuit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478597102933037903, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
+      propertyPath: cardColor
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4359994874049742972, guid: dceaf4a6a0769a74baef3067b33d6dde, type: 3}
       propertyPath: m_Name
@@ -17176,6 +17621,10 @@ PrefabInstance:
       propertyPath: cardSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 534737434671419884, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
+      propertyPath: cardColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4417544590046333663, guid: 923cd2b34afc8fd45a0a162fe54d2f6c, type: 3}
       propertyPath: m_Name
       value: Card Blue Pentagone Variant 8 (3)
@@ -17261,6 +17710,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 546960145657961422, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5282231641788951223, guid: 527b48d13482b674fa6c5a4b6079ac85, type: 3}
       propertyPath: m_Name
       value: Card Green Squre Variant 6 (2)
@@ -17382,13 +17835,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 1
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: You
-  playerNumber: 0
   exposeCardID: -1
+  playerNumber: 0
+  playerName: You
   redSprite: {fileID: 0}
   timerText: {fileID: 0}
   numberText: {fileID: 0}
@@ -17396,10 +17850,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 368269082}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!1 &1920493609
 GameObject:
   m_ObjectHideFlags: 0
@@ -17508,6 +17958,10 @@ PrefabInstance:
     - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862890953091381505, guid: e978dbb7396160e4382e000571742e65, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17778,6 +18232,140 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6398ab548878cbb40b4c3e2d055d8b7a, type: 3}
+--- !u!1 &1966845595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966845596}
+  - component: {fileID: 1966845598}
+  - component: {fileID: 1966845597}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1966845596
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966845595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2094491454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -44.4561, y: -12.1685}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1966845597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966845595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Are You Ready?
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 32.7
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1966845598
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966845595}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1991306365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17786,6 +18374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 4169459665755140613, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7776891899842676026, guid: 9bc02ddc8bdfe624783127dbc20167f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -18061,6 +18653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148166531186548914, guid: efa978facbc3e4f42bca1a592e314ad1, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18174,6 +18770,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2412634224104998023, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5946534867750511974, guid: 5b7a1ec3d35e7a24e94a1b83bdcfb032, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 7 (1)
@@ -18259,6 +18859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 48837148}
     m_Modifications:
+    - target: {fileID: 2054553149262799333, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
+      propertyPath: cardColor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5670816669331822298, guid: c1cf85ddebcc17f4fbc1b9723a67a04e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9
@@ -18381,13 +18985,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 8
-  playerNumber: 8
   exposeCardID: -1
+  playerNumber: 8
+  playerName: AI 8
   redSprite: {fileID: 1712343254}
   timerText: {fileID: 1204103033}
   numberText: {fileID: 1204103034}
@@ -18395,10 +19000,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &2033981263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18411,10 +19012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -18605,15 +19206,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGamePanel: {fileID: 1225735758}
-  shuffleButtonGO: {fileID: 202328273}
+  selectedCardImage: {fileID: 397218039}
   dealButtonGO: {fileID: 966777704}
+  readyButtonGO: {fileID: 2094491453}
   finishButtonGO: {fileID: 254711243}
   exposeButtonGO: {fileID: 2092156500}
+  shuffleButtonGO: {fileID: 202328273}
   notificationParentGO: {fileID: 742059345}
   buzzerCountText: {fileID: 438041495}
   notificationText: {fileID: 5080719193823206589}
   selectedCardDefaultSprite: {fileID: 21300000, guid: fc2282d67523e174db772b1c4fb0cc36, type: 3}
-  selectedCardImage: {fileID: 397218039}
 --- !u!1001 &2087955523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18622,6 +19224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 2711873335212891940, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223888449283505861, guid: 9dfb5fdefccee6c4b943c803c375b010, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 6 (3)
@@ -18832,6 +19438,139 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092156500}
   m_CullTransparentMesh: 1
+--- !u!1 &2094491453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2094491454}
+  - component: {fileID: 2094491457}
+  - component: {fileID: 2094491456}
+  - component: {fileID: 2094491455}
+  m_Layer: 5
+  m_Name: Ready Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2094491454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094491453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1966845596}
+  m_Father: {fileID: 1713655701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 309.9, y: 84.83}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2094491455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094491453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2094491456}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2076401283}
+        m_TargetAssemblyTypeName: GameplayUI, Assembly-CSharp
+        m_MethodName: AreYouReadyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2094491456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094491453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2094491457
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094491453}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2099364211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18843,6 +19582,10 @@ PrefabInstance:
     - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: cardSuit
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030472286247247759, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
+      propertyPath: cardColor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5522761461367347293, guid: 71359b4fb1c2cff41b9c0f916d463035, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19122,6 +19865,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 3709738290950839114, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4649562740590836395, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 2 (2)
@@ -19207,6 +19954,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787975410}
     m_Modifications:
+    - target: {fileID: 3709738290950839114, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
+      propertyPath: cardColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4649562740590836395, guid: e0cf6ef70129ac844bfec5374fad23aa, type: 3}
       propertyPath: m_Name
       value: Card Yellow Circle Variant 2 (1)
@@ -19329,13 +20080,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc1675e5d1f5534d99e0db1d71d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 0
   currentPlayer: 0
   haveBeginnerCard: 0
   haveBuzzerOption: 0
   haveFaceDownPileOption: 0
-  playerName: AI 3
-  playerNumber: 3
   exposeCardID: -1
+  playerNumber: 3
+  playerName: AI 3
   redSprite: {fileID: 2102326415}
   timerText: {fileID: 1193041299}
   numberText: {fileID: 1193041300}
@@ -19343,10 +20095,6 @@ MonoBehaviour:
   playerTimerText: {fileID: 0}
   cardID_List: 
   previousExposeCardID: -1
-  discardCardTrans:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    scale: {x: 0, y: 0, z: 0}
 --- !u!114 &2130591794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19359,10 +20107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveStreetCombination: 0
-  haveWenglaCombination: 0
-  WenglaCombinationNumber: 0
-  streetCombinationSuit: 0
+  haveStreet: 0
+  haveWengla: 0
+  WenglaNumber: 0
+  streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
@@ -19429,6 +20177,10 @@ PrefabInstance:
     - target: {fileID: 3843875580434736650, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451703638705525045, guid: 9084a4c7e5da0df48a7288b719c3588f, type: 3}
+      propertyPath: cardColor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

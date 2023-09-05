@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Events;
 
 public static class Helper
 {
@@ -22,10 +23,13 @@ public static class Helper
 public enum Mode { Online, Offline }
 
 [Serializable]
-public enum CardSuit { None, Pentagone, Squre, Triangle, Circle }
+public enum CardColor { None, Yellow, Red, Green, Blue }
 
 [Serializable]
 public enum CardCorners { None, Zero, Three, Four, Five }
+
+[Serializable]
+public enum CardSuit { None, Pentagone, Squre, Triangle, Circle }
 
 [Serializable]
 public class Sound
@@ -65,7 +69,7 @@ public class TransformSet
 }
 
 [Serializable]
-public class TwinCombination
+public class Twin
 {
     //public int[] cardIDs = new int[2];
     public int CardNumber { get; set; }
@@ -73,7 +77,7 @@ public class TwinCombination
 }
 
 [Serializable]
-public class TripletCombination
+public class Triplet
 {
     //public int[] cardIDs = new int[3];
     public int CardNumber { get; set; }
@@ -81,7 +85,7 @@ public class TripletCombination
 }
 
 [Serializable]
-public class QuadrupletCombination
+public class Quadruplet
 {
     //public int[] cardIDs = new int[4];
     public int CardNumber { get; set; }
@@ -89,15 +93,40 @@ public class QuadrupletCombination
 }
 
 [Serializable]
-public class StreetCombination
+public class Street
 {
     //public int[] cardIDs = new int[6];
     public CardSuit CardSuit { get; set; }
 }
 
 [Serializable]
-public class WenglaCombination
+public class Wengla
 {
     //public int[] cardIDs = new int[12];
     public int CardNumber { get; set; }
+}
+
+[Serializable]
+public class EventAndResponse
+{
+    public string name;
+    public GameEvent gameEvent;
+    public UnityEvent genericResponse;
+    public UnityEvent<int> sentIntResponse;
+    public UnityEvent<bool> sentBoolResponse;
+    public UnityEvent<float> sentFloatResponse;
+    public UnityEvent<string> sentStringResponse;
+
+    public void EventRaised()
+    {
+        if (genericResponse.GetPersistentEventCount() >= 1) { genericResponse.Invoke(); }
+
+        if (sentIntResponse.GetPersistentEventCount() >= 1) { sentIntResponse.Invoke(gameEvent.sentInt); }
+
+        if (sentBoolResponse.GetPersistentEventCount() >= 1) { sentBoolResponse.Invoke(gameEvent.sentBool); }
+
+        if (sentFloatResponse.GetPersistentEventCount() >= 1) { sentFloatResponse.Invoke(gameEvent.sentFloat); }
+
+        if (sentStringResponse.GetPersistentEventCount() >= 1) { sentStringResponse.Invoke(gameEvent.sentString); }
+    }
 }

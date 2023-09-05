@@ -1,25 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-
 
 public class EventListener : MonoBehaviour
 {
-    public GameEvent gameEvent;
-    public UnityEvent onEventTriggerd;
-
+    public List<EventAndResponse> eventAndResponses = new();
 
     private void OnEnable()
     {
-        gameEvent.AddListener(this);
-    }
-
-    public void OnEventTriggered()
-    {
-        onEventTriggerd.Invoke();
+        if (eventAndResponses.Count >= 1) { eventAndResponses.ForEach(e => e.gameEvent.AddListener(this)); }
     }
 
     private void OnDisable()
     {
-        gameEvent.RemoveListener(this);
+        if (eventAndResponses.Count >= 1) { eventAndResponses.ForEach(e => e.gameEvent.RemoveListener(this)); }
+    }
+
+    public void OnEventRaised(GameEvent passedEvent)
+    {
+        for (int i = eventAndResponses.Count - 1; i >= 0; i--)
+        {
+            if (passedEvent == eventAndResponses[i].gameEvent) { eventAndResponses[i].EventRaised(); }
+        }
     }
 }
