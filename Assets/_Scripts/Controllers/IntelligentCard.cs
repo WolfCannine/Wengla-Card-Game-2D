@@ -40,20 +40,23 @@ public class IntelligentCard : MonoBehaviour
 
     /*
      * Start Thinking of AI
+     * 
      * Check if beginner card is important
+     * 
      * if not then discard the beginner card
+     * 
      * otherwise check the other card which one is not forming
      * any kind of combination then discard that card
+     * 
+     * 
+     * 
+     * 
      */
-    public void FindCardAgainstBeginnerCard(int beginnerCardID = -1)
-    {
-        findCard = true;
-        CheckAllCombinations();
-    }
 
     public void FindCardToDiscard()
     {
-        _ = StartCoroutine(FindCardToDiscardRoutine());
+        findCard = true;
+        CheckAllCombinations();
     }
 
     public void CheckImportanceOfCard()
@@ -356,10 +359,12 @@ public class IntelligentCard : MonoBehaviour
             else
             {
                 cardToExpose = id;
+                cc.exposeCardID = id;
                 yield break;
             }
         }
         cardToExpose = cardId;
+        cc.exposeCardID = cardId;
         yield return new WaitForSeconds(1);
     }
 

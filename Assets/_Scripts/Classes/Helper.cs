@@ -95,7 +95,7 @@ public class Quadruplet
 [Serializable]
 public class Street
 {
-    //public int[] cardIDs = new int[6];
+    //public int[] cardIDs = new int[8];
     public CardSuit CardSuit { get; set; }
 }
 

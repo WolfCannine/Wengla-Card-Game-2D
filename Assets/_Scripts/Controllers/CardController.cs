@@ -18,6 +18,7 @@ public class CardController : MonoBehaviour
     public SpriteRenderer redSprite; // for Intelligent Card
     public TextMeshPro timerText; // for Intelligent Card
     public TextMeshPro numberText; // for Intelligent Card
+    public Transform aiCardPlace; // for Intelligent Card
     public Image playerGreenImage; // for Player
     public TextMeshProUGUI playerTimerText; // for Player
     public List<int> cardID_List;
@@ -104,7 +105,7 @@ public class CardController : MonoBehaviour
              * otherwise check the other card which one is not forming
              * any kind of combination then discard that card
              */
-            ic.FindCardAgainstBeginnerCard(cardID);
+            ic.FindCardToDiscard();
         }
     }
 
@@ -138,7 +139,8 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            Gc.ExposeCardOnTable(exposeCardID);
+            //Gc.ExposeCardOnTable(exposeCardID);
+            _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[exposeCardID].transform, false));
             Gc.ExposeCardID(exposeCardID);
         }
         RemoveCardIDFromHand(exposeCardID);
@@ -185,7 +187,8 @@ public class CardController : MonoBehaviour
             {
                 cardID_List.Sort();
                 Gc.cards[Gc.exposeCardID].pickable = false;
-                Gc.cards[Gc.exposeCardID].gameObject.SetActive(false);
+                //Gc.cards[Gc.exposeCardID].gameObject.SetActive(false);
+                _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[Gc.exposeCardID].transform));
                 Gui.CallNotification("Please discard a card!\r\nOtherwise a random card will be discarded!", resetText: false);
             }
             timerRoutine = StartCoroutine(TimerRoutine(15));
@@ -223,7 +226,7 @@ public class CardController : MonoBehaviour
     #region Coroutine
     private IEnumerator ReadyRoutine()
     {
-        int randomReady = Random.Range(5, Gc.sortingTime);
+        int randomReady = Random.Range(1, Gc.sortingTime / 2);
         while (randomReady > 0)
         {
             yield return new WaitForSeconds(1f);
@@ -337,7 +340,7 @@ public class CardController : MonoBehaviour
         previousExposeCardID = -1;
     }
 
-    private IEnumerator TurnSetRoutine(int time = 10)
+    private IEnumerator TurnSetRoutine(int time = 20)
     {
         int randomBuzzerTime = playerNumber != 0 ? UnityEngine.Random.Range(1, time - 1) : 0;
         if (playerNumber != 0)
@@ -364,6 +367,29 @@ public class CardController : MonoBehaviour
         Gc.SetPlayerTurn(playerNumber);
         Gc.SetTurnText();
     }
+
+    private IEnumerator DealDiscardAICardRoutine(Transform obj, bool deal = true)
+    {
+        obj.gameObject.SetActive(true);
+        Transform centerPlace = Gc.centerPlace;
+        TransformSet startTrans = new(centerPlace.position, centerPlace.rotation, centerPlace.localScale);
+        TransformSet endTrans = new(aiCardPlace.position, aiCardPlace.rotation, aiCardPlace.localScale);
+        if (!deal) { (startTrans, endTrans) = (endTrans, startTrans); }
+        float progress = 0;
+        float elapsedTime = 0;
+        while (progress <= 1)
+        {
+            obj.SetPositionAndRotation(Vector2.Lerp(startTrans.position, endTrans.position, progress),
+                Quaternion.Slerp(startTrans.rotation, endTrans.rotation, progress));
+            obj.localScale = Vector3.Lerp(startTrans.scale, endTrans.scale, progress);
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / DURATION;
+            yield return null;
+        }
+        obj.SetPositionAndRotation(endTrans.position, endTrans.rotation);
+        obj.localScale = endTrans.scale;
+        obj.gameObject.SetActive(!deal);
+    }
     #endregion
 
     #region UI Methods
@@ -385,7 +411,7 @@ public class CardController : MonoBehaviour
     {
         if (playerNumber != 0) { timerText.text = "Turn"; }
         else { playerTimerText.text = "Turn"; }
-        Gc.turnRoutine = StartCoroutine(TurnSetRoutine(10));
+        Gc.turnRoutine = StartCoroutine(TurnSetRoutine(20));
     }
 
     public void ResetTurnText()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,15 +37,7 @@ public class GameController : MonoBehaviour
                 return;
             }
         }
-        StopSortRoutine();
-    }
-
-    public void StopSortRoutine()
-    {
-        if (sortingRoutine == null) { return; }
-        StopCoroutine(sortingRoutine);
         Cm.AllPlayersReady();
-        sortingRoutine = null;
         ResetReadyText();
     }
 
@@ -130,6 +123,10 @@ public class GameController : MonoBehaviour
  * 
  * after game start
  * 
- * set turn time for player with 13th 20 sce card he will discard a card
+ * set turn time for player with 13th card to 20 seconds and he will discard a card
+ * if he not after 20 second a random cad will be discarded
+ * then the turn is of next player and if someone else press the buzzer he will lose his turn
+ * and the next player will call the buzzer
+ * 
  * 
  */

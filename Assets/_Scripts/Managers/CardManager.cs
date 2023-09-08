@@ -64,6 +64,8 @@ public class CardManager : MonoBehaviour
 
     public void AllPlayersReady()
     {
+        if (Gc.sortingRoutine != null) { StopCoroutine(Gc.sortingRoutine); }
+        Gc.sortingRoutine = null;
         string playerName = Gc.players[randomPlayer].playerName;
         Gui.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
         Gc.players[randomPlayer].Discard_a_Card();
@@ -135,11 +137,8 @@ public class CardManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             time--;
-            Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
+            Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false, msg: false);
         }
         Gui.AreYouReadyButton();
-        Gui.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
-        Gc.players[randomPlayer].Discard_a_Card();
-        Gc.sortingRoutine = null;
     }
 }

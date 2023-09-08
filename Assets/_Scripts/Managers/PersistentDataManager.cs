@@ -49,6 +49,8 @@ public class PersistentDataManager : MonoBehaviour
     private void ResetData()
     {
         gameData.wengCoins = 0;
+        // using System;
+        //Array.Fill(gameData.boolPlayerArray, false);
         SaveData();
     }
 }
