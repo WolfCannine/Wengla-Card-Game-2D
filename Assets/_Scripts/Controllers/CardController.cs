@@ -98,13 +98,6 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            /*
-             * Start Thinking of AI
-             * Check if beginner card is important
-             * if not then discard the beginner card
-             * otherwise check the other card which one is not forming
-             * any kind of combination then discard that card
-             */
             ic.FindCardToDiscard();
         }
     }
@@ -122,9 +115,10 @@ public class CardController : MonoBehaviour
         }
         else if (playerNumber == 0 && exposeCardID == -1)
         {
+            Tm.selectedCard.GetComponent<SpriteRenderer>().color = Color.white;
             exposeCardID = Tm.selectedCard.GetComponent<Card>().cardID;
         }
-        exposeCardID = isAI && aiExposeCardID != -1 ? aiExposeCardID : exposeCardID;
+        //exposeCardID = isAI && aiExposeCardID != -1 ? aiExposeCardID : exposeCardID;
         Gc.SetCardPickable(exposeCardID);
         if (playerNumber == 0)
         {
@@ -139,7 +133,6 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            //Gc.ExposeCardOnTable(exposeCardID);
             _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[exposeCardID].transform, false));
             Gc.ExposeCardID(exposeCardID);
         }
@@ -160,9 +153,9 @@ public class CardController : MonoBehaviour
         //{
         //    gc.playerTurnNumber = gc.previousTurnNumber;
         //}
-        Gui.CallNotification(playerName + " have discarded a card!\r\nNow its " + Gc.players[Gc.playerTurnNumber].playerName
-            + " turn", resetText: false);
+        ExposeCardNotify(playerName, Gc.players[Gc.playerTurnNumber].playerName);
         Gc.SetTurnText();
+        if (isAI) { CheckAllCombinations(); }
     }
 
     public void BuzzerCall()
@@ -181,22 +174,17 @@ public class CardController : MonoBehaviour
                 Gc.turnRoutine = null;
                 Gui.buzzerCountText.text = "0";
                 _ = StartCoroutine(SetDealtCardRoutine(Gc.cards[Gc.exposeCardID].gameObject.transform));
-                Gui.CallNotification("Please discard a card!\r\nOtherwise a random card will be discarded!", resetText: false);
+                DiscardCallNotify();
             }
             else
             {
                 cardID_List.Sort();
                 Gc.cards[Gc.exposeCardID].pickable = false;
-                //Gc.cards[Gc.exposeCardID].gameObject.SetActive(false);
                 _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[Gc.exposeCardID].transform));
-                Gui.CallNotification("Please discard a card!\r\nOtherwise a random card will be discarded!", resetText: false);
+                DiscardCallNotify();
             }
             timerRoutine = StartCoroutine(TimerRoutine(15));
             previousExposeCardID = Gc.exposeCardID;
-            if (Gc.playerTurnNumber != playerNumber)
-            {
-                Gc.players[Gc.playerTurnNumber].haveFaceDownPileOption = true;
-            }
         }
     }
 
@@ -220,6 +208,12 @@ public class CardController : MonoBehaviour
     {
         Gui.exposeButtonGO.SetActive(playerNumber == 0);
         timerRoutine = StartCoroutine(TimerRoutine(15));
+    }
+
+    public void CheckAllCombinations()
+    {
+        if (playerNumber == 0) { return; }
+        ic.CheckAllCombinations();
     }
     #endregion
 
@@ -261,6 +255,11 @@ public class CardController : MonoBehaviour
     private IEnumerator TimerRoutine(int time)
     {
         int cardExposeTime = playerNumber != 0 ? UnityEngine.Random.Range(0, time - 3) : 0;
+        if (playerNumber != 0 && !haveBeginnerCard)
+        {
+            ic.haveCardToExpose = false;
+            ic.FindCardToDiscard();
+        }
         SetTimerText(time);
         SetTimerGlow(time % 2 != 0);
         while (time > 0)
@@ -269,9 +268,11 @@ public class CardController : MonoBehaviour
             time--;
             SetTimerText(time);
             SetTimerGlow(time % 2 != 0);
-            if (playerNumber != 0 && cardExposeTime == time)
+            if (playerNumber != 0 && cardExposeTime >= time && ic.haveCardToExpose)
             {
                 ExposeCard(isAI: true);
+                ic.haveCardToExpose = false;
+                yield break;
             }
         }
         SetTimerText(enable: false);
@@ -342,15 +343,16 @@ public class CardController : MonoBehaviour
 
     private IEnumerator TurnSetRoutine(int time = 20)
     {
-        int randomBuzzerTime = playerNumber != 0 ? UnityEngine.Random.Range(1, time - 1) : 0;
+        int randomBuzzerTime = playerNumber != 0 ? UnityEngine.Random.Range(1, time - 1) : 0; // for ic(intelligent card)
+        bool isImportant = false; // for ic(intelligent card)
         if (playerNumber != 0)
         {
-
+            isImportant = ic.IsCardImp();
         }
         while (time > 0)
         {
             if (time == 5) { NotifyTurnPlayer(); }
-            if (randomBuzzerTime == time && ic.IsImportant(out aiExposeCardID))
+            if (randomBuzzerTime == time && isImportant)
             {
                 BuzzerCall();
                 Gc.turnRoutine = null;
@@ -361,8 +363,7 @@ public class CardController : MonoBehaviour
             SetTurnText(time % 2 == 0, time);
         }
         ResetTurnText();
-        Gui.CallNotification("Turn skiped!\r\nNow its " + Gc.players[Gc.playerTurnNumber].playerName
-            + " turn", resetText: false);
+        TurnSkipNotify(Gc.players[Gc.playerTurnNumber].playerName);
         Gc.turnRoutine = null;
         Gc.SetPlayerTurn(playerNumber);
         Gc.SetTurnText();
@@ -464,9 +465,15 @@ public class CardController : MonoBehaviour
         SetTimerGlow();
     }
 
-    private void NotifyTurnPlayer()
+    private void ExposeCardNotify(string exposer, string nextExposer)
     {
-        Gui.CallNotification("In 5 Seconds or if someone else call Buzzer\r\n Your turn will be skiped!", resetText: false);
+        Gui.CallNotification(exposer + " have discarded a card!\r\nNow its " + nextExposer + " turn", resetText: false);
     }
+
+    private void NotifyTurnPlayer() { Gui.CallNotification("In 5 Seconds or if someone else call Buzzer\r\n Your turn will be skiped!", resetText: false); }
+
+    private void DiscardCallNotify() { Gui.CallNotification("Please discard a card!\r\nOtherwise a random card will be discarded!", resetText: false); }
+    
+    private void TurnSkipNotify(string name) { Gui.CallNotification("Turn skiped!\r\nNow its " + name + " turn", resetText: false); }
     #endregion
 }

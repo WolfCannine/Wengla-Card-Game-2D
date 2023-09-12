@@ -121,6 +121,7 @@ public class CardManager : MonoBehaviour
                 ID++;
             }
             Gc.players[currentPlayer].AssignCardID_List(cradID_List);
+            Gc.players[currentPlayer].CheckAllCombinations();
             currentPlayer++;
         }
         yield return new WaitForSeconds(0f);

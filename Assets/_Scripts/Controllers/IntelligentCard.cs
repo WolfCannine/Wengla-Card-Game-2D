@@ -19,9 +19,12 @@ public class IntelligentCard : MonoBehaviour
     private Coroutine checkCombinationRoutine;
     private GameController Gc => GameController.gc;
 
+    public bool haveCardToExpose;
+
     public bool haveStreet;
     public bool haveWengla;
     public int WenglaNumber;
+    public int cardNumberWithMaxCount;
     public CardSuit streetSuit;
     public List<Twin> foundTwins = new();
     public List<Triplet> foundTriplets = new();
@@ -30,8 +33,10 @@ public class IntelligentCard : MonoBehaviour
     public Wengla foundWengla;
     public Dictionary<CardSuit, List<int>> suitCardIDs = new();
 
-    private bool findCard;
-    private int cardToExpose = -1;
+    public Queue<int> lessImportantCards = new();
+    public List<int> lessImportantCards1 = new();
+    public List<int> cardIDsWithMaxCounts = new();
+    //private int cardToExpose = -1;
 
     private void Awake()
     {
@@ -55,13 +60,7 @@ public class IntelligentCard : MonoBehaviour
 
     public void FindCardToDiscard()
     {
-        findCard = true;
         CheckAllCombinations();
-    }
-
-    public void CheckImportanceOfCard()
-    {
-        _ = StartCoroutine(FindCardToDiscardRoutine());
     }
 
     public void CheckAllCombinations()
@@ -75,12 +74,15 @@ public class IntelligentCard : MonoBehaviour
 
     public void ClearSuitCardIDs()
     {
+        haveStreet = false;
+        haveWengla = false;
+        haveCardToExpose = false;
+        foundStreet = null;
+        foundWengla = null;
         suitCardIDs.Clear();
         foundTwins.Clear();
         foundTriplets.Clear();
         foundQuadruplets.Clear();
-        foundStreet = null;
-        foundWengla = null;
     }
 
     public void SetSuitList()
@@ -100,14 +102,105 @@ public class IntelligentCard : MonoBehaviour
         }
     }
 
+    public bool IsCardImp()
+    {
+        if (Gc.exposeCardID < 10) { return true; }
+
+        int lessImpCardID = GetLessImpCardID;
+        int xCardNumber = Gc.cards[Gc.exposeCardID].cardNumber;
+        CardSuit xCardSuit = Gc.cards[Gc.exposeCardID].cardSuit;
+
+        return lessImpCardID != -1 && CheckAllForImp(xCardNumber, xCardSuit);
+    }
+
+    public bool CheckAllForImp(int xCardNumber, CardSuit xCardSuit)
+    {
+        return QuadExist(xCardNumber, xCardSuit) || TriExist(xCardNumber, xCardSuit) || DuoExist(xCardNumber, xCardSuit)
+            || SameExist(xCardNumber, xCardSuit) || SameNumberExist(xCardNumber) || SameSuitExist(xCardSuit);
+    }
+
     public bool IsImportant(out int cardID)
     {
-        int require = Gc.cards[Gc.exposeCardID].cardNumber;
-        bool quadrupletExist = foundQuadruplets.Any(quad => quad.CardNumber == require);
-        bool tripletExist = foundTriplets.Any(triple => triple.CardNumber == require);
-        bool twinExist = foundTwins.Any(twin => twin.CardNumber == require);
-        cardID = cardToExpose;
-        return (twinExist || tripletExist || quadrupletExist) && cardID != -1;
+        int lessImpCardID = GetLessImpCardID;
+        if (Gc.exposeCardID < 10)
+        {
+            cardID = lessImpCardID;
+            return true;
+        }
+
+        int xCardNumber = Gc.cards[Gc.exposeCardID].cardNumber;
+        CardSuit xCardSuit = Gc.cards[Gc.exposeCardID].cardSuit;
+
+        if (lessImpCardID != -1 && (QuadExist(xCardNumber, xCardSuit) || TriExist(xCardNumber, xCardSuit) ||
+            DuoExist(xCardNumber, xCardSuit) || SameExist(xCardNumber, xCardSuit) || SameNumberExist(xCardNumber)
+            || SameSuitExist(xCardSuit)))
+        {
+            cardID = lessImpCardID;
+            return true;
+        }
+
+        cardID = -1;
+        return false;
+    }
+
+    public int GetCardIDToExpose()
+    {
+        int lessImpCardID = GetLessImpCardID;
+
+        if (lessImpCardID != -1)
+        {
+            return lessImpCardID;
+        }
+        else if (foundTwins.Count > 0)
+        {
+            return foundTwins[0].cardIDs[0];
+        }
+        else if (foundTriplets.Count > 0)
+        {
+            return foundTriplets[0].cardIDs[0];
+        }
+        else if (foundQuadruplets.Count > 0)
+        {
+            return foundQuadruplets[0].cardIDs[0];
+        }
+        //else
+        //{
+        //    return cc.cardID_List.LastOrDefault();
+        //}
+        return lessImpCardID != -1 ? lessImpCardID : foundTwins.Count > 0 ? foundTwins[0].cardIDs[0] : foundTriplets.Count > 0 ?
+            foundTriplets[0].cardIDs[0] : foundQuadruplets.Count > 0 ? foundQuadruplets[0].cardIDs[0] : foundQuadruplets[0].cardIDs[0];
+    }
+
+    public int GetLessImpCardID => lessImportantCards.Count != 0 ? lessImportantCards.Dequeue() : -1;
+
+    public bool QuadExist(int xCardNumber, CardSuit xCardSuit)
+    {
+        return foundQuadruplets.Any(quad => quad.CardNumber == xCardNumber && quad.CardSuit == xCardSuit);
+    }
+
+    public bool TriExist(int xCardNumber, CardSuit xCardSuit)
+    {
+        return foundTriplets.Any(triple => triple.CardNumber == xCardNumber && triple.CardSuit == xCardSuit);
+    }
+
+    public bool DuoExist(int xCardNumber, CardSuit xCardSuit)
+    {
+        return foundTwins.Any(twin => twin.CardNumber == xCardNumber && twin.CardSuit == xCardSuit);
+    }
+
+    public bool SameExist(int xCardNumber, CardSuit xCardSuit)
+    {
+        return cc.cardID_List.Any(cardID => Gc.cards[cardID].cardNumber == xCardNumber && Gc.cards[cardID].cardSuit == xCardSuit);
+    }
+
+    public bool SameNumberExist(int xCardNumber)
+    {
+        return cc.cardID_List.Any(cardID => Gc.cards[cardID].cardNumber == xCardNumber);
+    }
+
+    public bool SameSuitExist(CardSuit xCardSuit)
+    {
+        return cc.cardID_List.Any(cardID => Gc.cards[cardID].cardSuit == xCardSuit);
     }
 
     //2 cards with same number and suit
@@ -163,12 +256,10 @@ public class IntelligentCard : MonoBehaviour
                     return true;
                 }
                 cardIDs[1] = ID;
+                continue;
             }
-            else
-            {
-                cardIDs[0] = ID;
-                cardCounts.Add(cardNum, 1);
-            }
+            cardIDs[0] = ID;
+            cardCounts.Add(cardNum, 1);
         }
         cardNumber = -1;
         return false;
@@ -197,11 +288,9 @@ public class IntelligentCard : MonoBehaviour
                     cardNumber = cardNum;
                     return true;
                 }
+                continue;
             }
-            else
-            {
-                cardCounts.Add(cardNum, 1);
-            }
+            cardCounts.Add(cardNum, 1);
         }
 
         cardNumber = -1;
@@ -221,14 +310,38 @@ public class IntelligentCard : MonoBehaviour
         foreach (int ID in suitCardIDs[targetCardSuit])
         {
             int cardNum = Gc.cards[ID].cardNumber;
-
-            if (cardNum >= 1 && cardNum <= 8)
-            {
-                cardNumbers[cardNum] = true;
-            }
+            cardNumbers[cardNum] = cardNum >= 1 && cardNum <= 8;
         }
 
         for (int i = 1; i <= 8; i++)
+        {
+            if (!cardNumbers[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // near street combination
+    public bool HaveNearStreet(CardSuit targetCardSuit)
+    {
+        int count = suitCardIDs[targetCardSuit].Count;
+        if (!suitCardIDs.ContainsKey(targetCardSuit) || count < 4)
+        {
+            return false;
+        }
+
+        bool[] cardNumbers = new bool[count + 1];
+
+        foreach (int ID in suitCardIDs[targetCardSuit])
+        {
+            int cardNum = Gc.cards[ID].cardNumber;
+            cardNumbers[cardNum] = cardNum >= 1 && cardNum <= count;
+        }
+
+        for (int i = 1; i <= count; i++)
         {
             if (!cardNumbers[i])
             {
@@ -273,11 +386,61 @@ public class IntelligentCard : MonoBehaviour
         return 0;
     }
 
+    // Near wengla combination
+    public bool HaveNearWengla(out int cardNumber)
+    {
+        Dictionary<int, int> cardCounts = new();
+
+        foreach (int ID in cc.cardID_List)
+        {
+            int cardNum = Gc.cards[ID].cardNumber;
+
+            if (cardCounts.ContainsKey(cardNum))
+            {
+                cardCounts[cardNum]++;
+                if (cardCounts[cardNum] >= 4)
+                {
+                    cardNumber = cardNum;
+                    return true;
+                }
+                continue;
+            }
+            cardCounts.Add(cardNum, 1);
+        }
+
+        cardNumber = -1;
+        return true;
+    }
+
+    public int FindCardNumberWithMaxCount() // for wengla formation
+    {
+        cardIDsWithMaxCounts.Clear();
+        Dictionary<int, List<int>> cardCounts = new();
+
+        foreach (int id in cc.cardID_List)
+        {
+            int cardNum = Gc.cards[id].cardNumber;
+            if (cardNum == 0) { continue; }
+            if (cardCounts.Any(x => Gc.cards[x.Key].cardNumber == cardNum))
+            {
+                cardCounts[cardNum].Add(id);
+                continue;
+            }
+            cardCounts.Add(cardNum, new List<int> { id });
+        }
+
+        cardNumberWithMaxCount = cardCounts.OrderByDescending(pair => pair.Value.Count).First().Key;
+        _ = cardCounts.TryGetValue(cardNumberWithMaxCount, out cardIDsWithMaxCounts);
+
+        return cardNumberWithMaxCount;
+    }
+
     private IEnumerator CheckCardsCombinations()
     {
+        float wait = 0.3f;
         SetSuitList();
 
-        yield return new WaitForSeconds(0.3f);// For Wengla!!!!!!!!!!!!
+        yield return new WaitForSeconds(wait);// For Wengla!!!!!!!!!!!!
         haveWengla = HaveWengla(out WenglaNumber);
         foundWengla = new Wengla { CardNumber = WenglaNumber };
         if (haveWengla)
@@ -286,86 +449,108 @@ public class IntelligentCard : MonoBehaviour
             yield break;
         }
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(wait);
 
         List<CardSuit> suitsToCheck = new() { CardSuit.Pentagone, CardSuit.Squre, CardSuit.Triangle, CardSuit.Circle };
 
         foreach (CardSuit suit in suitsToCheck)
         {
-            yield return new WaitForSeconds(0.1f);// For Street!!!!!!!!!!!!
+            yield return new WaitForSeconds(wait);
 
-            if (HaveStreet(suit))
+            if (HaveStreet(suit)) // For Street!!!!!!!!!!!!
             {
                 haveStreet = true;
                 streetSuit = suit;
                 foundStreet = new Street { CardSuit = suit };
             }
 
-            yield return new WaitForSeconds(0.3f);// For Quadruplets!!!!!!!!!!!!
+            yield return new WaitForSeconds(wait);
 
-            if (HaveQuadruplets(out int number, suit))
+            if (HaveQuadruplets(out int number, suit)) // For Quadruplets!!!!!!!!!!!!
             {
-                foundQuadruplets.Add(new Quadruplet { CardNumber = number, CardSuit = suit });
+                //foundQuadruplets.Add(new Quadruplet { CardNumber = number, CardSuit = suit });
+                AddCardIDsInCombination(suit, number, 2);
+                yield return new WaitForSeconds(wait);
             }
-
-            yield return new WaitForSeconds(0.3f);// For Triplets!!!!!!!!!!!!
-
-            if (HaveTriplets(out number, suit))
+            else if (HaveTriplets(out number, suit)) // For Triplets!!!!!!!!!!!!
             {
-                foundTriplets.Add(new Triplet { CardNumber = number, CardSuit = suit });
+                //foundTriplets.Add(new Triplet { CardNumber = number, CardSuit = suit });
+                AddCardIDsInCombination(suit, number, 1);
+                yield return new WaitForSeconds(wait);
             }
-
-            yield return new WaitForSeconds(0.3f);// For Twins!!!!!!!!!!!!
-
-            if (HaveTwins(out number, suit))
+            else if (HaveTwins(out number, suit)) // For Twins!!!!!!!!!!!!
             {
-                foundTwins.Add(new Twin { CardNumber = number, CardSuit = suit });
+                //foundTwins.Add(new Twin { CardNumber = number, CardSuit = suit });
+                AddCardIDsInCombination(suit, number, 0);
+                yield return new WaitForSeconds(wait);
             }
-
-            yield return new WaitForSeconds(0.3f);
         }
-        if (findCard)
+        _ = StartCoroutine(SetLessImportantCards());
+    }
+
+    private void AddCardIDsInCombination(CardSuit suit, int number, int combType)
+    {
+        if (combType == 0) foundTwins.Add(new Twin { CardNumber = number, CardSuit = suit });
+        else if (combType == 1) foundTriplets.Add(new Triplet { CardNumber = number, CardSuit = suit });
+        else foundQuadruplets.Add(new Quadruplet { CardNumber = number, CardSuit = suit });
+        int j = 0;
+        int jMax = combType == 0 ? 2 : combType == 1 ? 3 : 4;
+        foreach (int i in cc.cardID_List)
         {
-            FindCardToDiscard();
+            if (j < jMax && Gc.cards[i].cardSuit == suit && Gc.cards[i].cardNumber == number)
+            {
+                if (combType == 0)
+                {
+                    foundTwins[^1].cardIDs[j] = i;
+                    j++;
+                    continue;
+                }
+                else if (combType == 1)
+                {
+                    foundTriplets[^1].cardIDs[j] = i;
+                    j++;
+                    continue;
+                }
+                foundQuadruplets[^1].cardIDs[j] = i;
+                j++;
+            }
         }
     }
 
-    private IEnumerator FindCardToDiscardRoutine()
+    private IEnumerator SetLessImportantCards()
     {
-        int cardId = -1;
+        const float wait = 0.2f;
+        lessImportantCards.Clear();
+        lessImportantCards1.Clear();
         foreach (int id in cc.cardID_List)
         {
-            if (haveStreet)
+            if (CheckStreet(id) || CheckQuadruplet(id) || CheckTriplet(id) || CheckTwin(id))
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(wait);
                 continue;
             }
-            else if (CheckQuadruplet(id))
+            if (id > 9)
             {
-                yield return new WaitForSeconds(0.2f);
-                continue;
-            }
-            else if (CheckTriplet(id))
-            {
-                yield return new WaitForSeconds(0.2f);
-                continue;
-            }
-            else if (CheckTwin(id))
-            {
-                cardId = id;
-                yield return new WaitForSeconds(0.2f);
-                continue;
-            }
-            else
-            {
-                cardToExpose = id;
-                cc.exposeCardID = id;
-                yield break;
+                lessImportantCards.Enqueue(id);
+                lessImportantCards1.Add(id);
             }
         }
-        cardToExpose = cardId;
-        cc.exposeCardID = cardId;
-        yield return new WaitForSeconds(1);
+        int cardID = GetCardIDToExpose();
+        yield return new WaitForSeconds(wait);
+        cc.exposeCardID = cardID;
+        haveCardToExpose = cardID != -1;
+    }
+
+    private bool CheckStreet(int cardToCheck = -1)
+    {
+        if (haveStreet)
+        {
+            if (streetSuit == Gc.cards[cardToCheck].cardSuit)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private bool CheckQuadruplet(int cardToCheck = -1)
@@ -374,9 +559,9 @@ public class IntelligentCard : MonoBehaviour
         {
             return false;
         }
-        foreach (Quadruplet qc in foundQuadruplets)
+        foreach (Quadruplet quad in foundQuadruplets)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (quad.CardSuit == Gc.cards[cardToCheck].cardSuit && quad.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }
@@ -386,13 +571,13 @@ public class IntelligentCard : MonoBehaviour
 
     private bool CheckTriplet(int cardToCheck = -1)
     {
-        if (foundQuadruplets.Count == 0)
+        if (foundTriplets.Count == 0)
         {
             return false;
         }
-        foreach (Triplet qc in foundTriplets)
+        foreach (Triplet triple in foundTriplets)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (triple.CardSuit == Gc.cards[cardToCheck].cardSuit && triple.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }
@@ -402,13 +587,13 @@ public class IntelligentCard : MonoBehaviour
 
     private bool CheckTwin(int cardToCheck = -1)
     {
-        if (foundQuadruplets.Count == 0)
+        if (foundTwins.Count == 0)
         {
             return false;
         }
-        foreach (Twin qc in foundTwins)
+        foreach (Twin twin in foundTwins)
         {
-            if (qc.CardSuit == Gc.cards[cardToCheck].cardSuit && qc.CardNumber == Gc.cards[cardToCheck].cardNumber)
+            if (twin.CardSuit == Gc.cards[cardToCheck].cardSuit && twin.CardNumber == Gc.cards[cardToCheck].cardNumber)
             {
                 return true;
             }

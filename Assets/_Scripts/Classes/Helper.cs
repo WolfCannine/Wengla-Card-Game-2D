@@ -69,41 +69,63 @@ public class TransformSet
 }
 
 [Serializable]
-public class Twin
+public class CombinationBase
 {
-    //public int[] cardIDs = new int[2];
+    public int[] cardIDs;
     public int CardNumber { get; set; }
     public CardSuit CardSuit { get; set; }
+
+    public CombinationBase(int arrayCount)
+    {
+        cardIDs = new int[arrayCount];
+        ClearIDs();
+    }
+
+    public void ClearIDs()
+    {
+        Array.Fill(cardIDs, -1);
+    }
 }
 
 [Serializable]
-public class Triplet
+public class Twin : CombinationBase
 {
-    //public int[] cardIDs = new int[3];
-    public int CardNumber { get; set; }
-    public CardSuit CardSuit { get; set; }
+    public Twin() : base(2) { }
 }
 
 [Serializable]
-public class Quadruplet
+public class Triplet : CombinationBase
 {
-    //public int[] cardIDs = new int[4];
-    public int CardNumber { get; set; }
-    public CardSuit CardSuit { get; set; }
+    public Triplet() : base(3) { }
 }
 
 [Serializable]
-public class Street
+public class Quadruplet : CombinationBase
 {
-    //public int[] cardIDs = new int[8];
-    public CardSuit CardSuit { get; set; }
+    public Quadruplet() : base(4) { }
 }
 
 [Serializable]
-public class Wengla
+public class Street : CombinationBase
 {
-    //public int[] cardIDs = new int[12];
-    public int CardNumber { get; set; }
+    public Street() : base(8) { }
+}
+
+[Serializable]
+public class Wengla : CombinationBase
+{
+    public Wengla() : base(12) { }
+}
+
+[Serializable]
+public class CombinationContainer
+{
+    public List<CombinationBase> Combinations { get; set; }
+
+    public CombinationContainer()
+    {
+        Combinations = new List<CombinationBase>();
+    }
 }
 
 [Serializable]
@@ -130,3 +152,46 @@ public class EventAndResponse
         if (sentStringResponse.GetPersistentEventCount() >= 1) { sentStringResponse.Invoke(gameEvent.sentString); }
     }
 }
+
+//public int[] cardIDs = new int[2];
+//public int CardNumber { get; set; }
+//public CardSuit CardSuit { get; set; }
+
+//public void ClearIDs()
+//{
+//    Array.Fill(cardIDs, -1);
+//}
+
+//public int[] cardIDs = new int[3];
+//public int CardNumber { get; set; }
+//public CardSuit CardSuit { get; set; }
+
+//public void ClearIDs()
+//{
+//    Array.Fill(cardIDs, -1);
+//}
+
+//public int[] cardIDs = new int[4];
+//public int CardNumber { get; set; }
+//public CardSuit CardSuit { get; set; }
+
+//public void ClearIDs()
+//{
+//    Array.Fill(cardIDs, -1);
+//}
+
+//public int[] cardIDs = new int[8];
+//public CardSuit CardSuit { get; set; }
+
+//public void ClearIDs()
+//{
+//    Array.Fill(cardIDs, -1);
+//}
+
+//public int[] cardIDs = new int[12];
+//public int CardNumber { get; set; }
+
+//public void ClearIDs()
+//{
+//    Array.Fill(cardIDs, -1);
+//}
