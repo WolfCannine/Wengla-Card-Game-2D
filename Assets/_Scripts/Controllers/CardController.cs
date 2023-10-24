@@ -23,7 +23,6 @@ public class CardController : MonoBehaviour
     public TextMeshProUGUI playerTimerText; // for Player
     public List<int> cardID_List;
 
-    private int aiExposeCardID; // for Intelligent Card
     [SerializeField]
     private int previousExposeCardID;
     private Coroutine timerRoutine;
@@ -48,7 +47,6 @@ public class CardController : MonoBehaviour
         SetTimerText(enable: false);
         SetTimerGlow();
         previousExposeCardID = -1;
-        aiExposeCardID = -1;
         if (numberText != null) { numberText.text = playerNumber.ToString(); }
     }
     #endregion
@@ -76,9 +74,6 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            /*
-             * Start Thinking of AI
-             */
             this.cardID_List.Sort();
             SetReadyText();
         }
@@ -107,24 +102,22 @@ public class CardController : MonoBehaviour
         if (random && !haveBeginnerCard)
         {
             exposeCardID = Tm.selectedCard != null ? Tm.selectedCard.GetComponent<Card>().cardID :
-                exposeCardID = cardID_List[UnityEngine.Random.Range(0, cardID_List.Count)];
+                exposeCardID = cardID_List[Random.Range(0, cardID_List.Count)];
         }
         else if (random && haveBeginnerCard)
         {
-            exposeCardID = cardID_List[UnityEngine.Random.Range(0, cardID_List.Count)];
+            exposeCardID = cardID_List[Random.Range(0, cardID_List.Count)];
         }
         else if (playerNumber == 0 && exposeCardID == -1)
         {
             Tm.selectedCard.GetComponent<SpriteRenderer>().color = Color.white;
             exposeCardID = Tm.selectedCard.GetComponent<Card>().cardID;
         }
-        //exposeCardID = isAI && aiExposeCardID != -1 ? aiExposeCardID : exposeCardID;
         Gc.SetCardPickable(exposeCardID);
         if (playerNumber == 0)
         {
             Gui.SetSellectedCard();
             Gui.exposeButtonGO.SetActive(false);
-            Gc.ExposeCardID(exposeCardID);
             if (!haveBeginnerCard)
             {
                 _ = StartCoroutine(ExposeDiscardCardRoutine(Gc.cards[exposeCardID].transform));
@@ -134,25 +127,14 @@ public class CardController : MonoBehaviour
         else
         {
             _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[exposeCardID].transform, false));
-            Gc.ExposeCardID(exposeCardID);
         }
+        Gc.ExposeCardID(exposeCardID);
         RemoveCardIDFromHand(exposeCardID);
         StopTimerRoutine();
-        Gc.BuzzerCall();
-        Gc.allowBuzzer = true;
+        Gc.SetBuzzerCallerID(allowBuzzer: true);
         exposeCardID = -1;
-        aiExposeCardID = -1;
-        if (haveBeginnerCard) { haveBeginnerCard = false; }
+        haveBeginnerCard = false;
         Gc.SetPlayerTurn(playerNumber);
-        //if (gc.previousTurnNumber == (gc.playerTurnNumber - 1) % gc.players.Count)
-        //{
-        //    gc.SetPlayerTurn(playerNumber);
-        //    gc.previousTurnNumber = playerNumber;
-        //}
-        //else
-        //{
-        //    gc.playerTurnNumber = gc.previousTurnNumber;
-        //}
         ExposeCardNotify(playerName, Gc.players[Gc.playerTurnNumber].playerName);
         Gc.SetTurnText();
         if (isAI) { CheckAllCombinations(); }
@@ -162,30 +144,32 @@ public class CardController : MonoBehaviour
     {
         Gc.ResetTurnText(Gc.playerTurnNumber);
         AddCardIDToHand(Gc.exposeCardID);
-        if (Gc.buzzerCallerID == -1 && Gc.allowBuzzer && haveBuzzerOption)
+        if (Gc.buzzerCallerID == -1 && Gc.allowBuzzer)
         {
-            haveBuzzerOption = false;
-            Gc.BuzzerCall(playerNumber);
-            Gc.allowBuzzer = false;
+            Gc.SetBuzzerCallerID(playerNumber);
             Gui.exposeButtonGO.SetActive(playerNumber == 0);
             if (playerNumber == 0)
             {
-                if (Gc.turnRoutine != null) { StopCoroutine(Gc.turnRoutine); }
-                Gc.turnRoutine = null;
+                StopTurnRoutine();
                 Gui.buzzerCountText.text = "0";
-                _ = StartCoroutine(SetDealtCardRoutine(Gc.cards[Gc.exposeCardID].gameObject.transform));
-                DiscardCallNotify();
+                _ = StartCoroutine(SetDealtCardRoutine(Gc.cards[Gc.exposeCardID].transform));
             }
             else
             {
                 cardID_List.Sort();
                 Gc.cards[Gc.exposeCardID].pickable = false;
                 _ = StartCoroutine(DealDiscardAICardRoutine(Gc.cards[Gc.exposeCardID].transform));
-                DiscardCallNotify();
             }
+            DiscardCallNotify();
             timerRoutine = StartCoroutine(TimerRoutine(15));
             previousExposeCardID = Gc.exposeCardID;
         }
+    }
+
+    private void StopTurnRoutine()
+    {
+        if (Gc.turnRoutine != null) { StopCoroutine(Gc.turnRoutine); }
+        Gc.turnRoutine = null;
     }
 
     public void AddCardIDToHand(int cardID)
@@ -271,7 +255,6 @@ public class CardController : MonoBehaviour
             if (playerNumber != 0 && cardExposeTime >= time && ic.haveCardToExpose)
             {
                 ExposeCard(isAI: true);
-                ic.haveCardToExpose = false;
                 yield break;
             }
         }
@@ -343,7 +326,7 @@ public class CardController : MonoBehaviour
 
     private IEnumerator TurnSetRoutine(int time = 20)
     {
-        int randomBuzzerTime = playerNumber != 0 ? UnityEngine.Random.Range(1, time - 1) : 0; // for ic(intelligent card)
+        int randomBuzzerTime = playerNumber != 0 ? Random.Range(1, time - 1) : 0; // for ic(intelligent card)
         bool isImportant = false; // for ic(intelligent card)
         if (playerNumber != 0)
         {
@@ -352,8 +335,9 @@ public class CardController : MonoBehaviour
         while (time > 0)
         {
             if (time == 5) { NotifyTurnPlayer(); }
-            if (randomBuzzerTime == time && isImportant)
+            if (haveBuzzerOption && randomBuzzerTime == time && isImportant)
             {
+                haveBuzzerOption = false;
                 BuzzerCall();
                 Gc.turnRoutine = null;
                 yield break;
@@ -473,7 +457,7 @@ public class CardController : MonoBehaviour
     private void NotifyTurnPlayer() { Gui.CallNotification("In 5 Seconds or if someone else call Buzzer\r\n Your turn will be skiped!", resetText: false); }
 
     private void DiscardCallNotify() { Gui.CallNotification("Please discard a card!\r\nOtherwise a random card will be discarded!", resetText: false); }
-    
+
     private void TurnSkipNotify(string name) { Gui.CallNotification("Turn skiped!\r\nNow its " + name + " turn", resetText: false); }
     #endregion
 }

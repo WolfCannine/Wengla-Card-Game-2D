@@ -702,13 +702,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &88009348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6378,13 +6386,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1 &639195978
 GameObject:
   m_ObjectHideFlags: 0
@@ -7818,13 +7834,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!4 &816817739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 302155280510860521, guid: 6398ab548878cbb40b4c3e2d055d8b7a, type: 3}
@@ -9842,13 +9866,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &1028069423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10015,13 +10047,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &1030276747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13236,13 +13276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &1312482190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18482,13 +18530,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &1888198119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20063,13 +20119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1 &2035130058
 GameObject:
   m_ObjectHideFlags: 0
@@ -21511,13 +21575,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed764b4207df9f498b9582d37908ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveCardToExpose: 0
   haveStreet: 0
   haveWengla: 0
   WenglaNumber: 0
+  cardNumberWithMaxCount: -1
   streetSuit: 0
   foundTwins: []
   foundTriplets: []
   foundQuadruplets: []
+  foundStreet:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  foundWengla:
+    cardIDs: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lessImportantCards1: 
+  cardIDsWithMaxCounts: 
 --- !u!1001 &2144284069
 PrefabInstance:
   m_ObjectHideFlags: 0

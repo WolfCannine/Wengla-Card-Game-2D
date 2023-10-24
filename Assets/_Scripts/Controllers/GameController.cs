@@ -54,9 +54,10 @@ public class GameController : MonoBehaviour
         exposeCardID = cardID;
     }
 
-    public void BuzzerCall(int caller = -1)
+    public void SetBuzzerCallerID(int caller = -1, bool allowBuzzer = false)
     {
         buzzerCallerID = caller;
+        this.allowBuzzer = allowBuzzer;
     }
 
     public void SetPlayerTurn(int current = -1)
@@ -114,7 +115,7 @@ public class GameController : MonoBehaviour
  * shuffle cards ..
  * assign cards ..
  * 13th assign ..
- * give time for soting ..
+ * give time for sorting ..
  * run 60 sec routine ..
  * randomly set ready by each player ..
  * think about card discard by the player with 13th card .

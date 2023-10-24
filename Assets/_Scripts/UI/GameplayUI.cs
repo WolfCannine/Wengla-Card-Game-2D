@@ -57,7 +57,7 @@ public class GameplayUI : MonoBehaviour
     {
         if (TouchManager.tm.selectedCard == null && !Gc.players[0].haveBeginnerCard)
         {
-            CallNotification("Plaese select a Card then press Expose Button!", 4);
+            CallNotification("Plaese select a Card then press Expose Button!", msg: false);
         }
         else
         {
@@ -67,7 +67,12 @@ public class GameplayUI : MonoBehaviour
 
     public void BuzzerButton()
     {
-        Gc.players[0].BuzzerCall();
+        CardController player = Gc.players[0];
+        if (player.haveBuzzerOption)
+        {
+            player.haveBuzzerOption = false;
+            player.BuzzerCall();
+        }
     }
 
     public void RestartButton()
