@@ -1,11 +1,80 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public static class Helper
 {
+    private static Camera _camera;
+    private static GameData _gameData;
+    private static GameManager _gameManager;
+    private static PersistentDataManager _dataManager;
+    private static PointerEventData _eventDataCurrentPosition;
+    private static List<RaycastResult> _results;
+    private static readonly Dictionary<float, WaitForSeconds> waitDictionary = new();
+
+    public static Camera Camera
+    {
+        get
+        {
+            if (_camera == null) { _camera = Camera.main; }
+            return _camera;
+        }
+    }
+
+    public static PersistentDataManager DM
+    {
+        get
+        {
+            if (_dataManager == null) { _dataManager = PersistentDataManager.Instance; }
+            return _dataManager;
+        }
+    }
+
+    public static GameData GD
+    {
+        get
+        {
+            if (_gameData == null) { _gameData = DM.gameData; }
+            return _gameData;
+        }
+    }
+
+    public static GameManager GM
+    {
+        get
+        {
+            if (_gameManager == null) { _gameManager = GameManager.Instance; }
+            return _gameManager;
+        }
+    }
+
+    public static void SaveData() { DM.SaveData(); }
+
+    public static WaitForSeconds GetWait(float time)
+    {
+        if (waitDictionary.TryGetValue(time, out WaitForSeconds wait)) { return wait; }
+
+        waitDictionary[time] = new WaitForSeconds(time);
+        return waitDictionary[time];
+    }
+
+    public static bool IsOverUI()
+    {
+        _eventDataCurrentPosition = new(EventSystem.current) { position = Input.mousePosition };
+        _results = new();
+        EventSystem.current.RaycastAll(_eventDataCurrentPosition, _results);
+        return _results.Count > 0;
+    }
+
+    public static Vector2 GetWorldPositionOfCanvasElement(RectTransform element)
+    {
+        RectTransformUtility.ScreenPointToWorldPointInRectangle(element, element.position, Camera, out var result);
+        return result;
+    }
+
     public static void Shuffle<T>(List<T> list)
     {
         System.Random rand = new();
@@ -32,24 +101,21 @@ public enum CardCorners { None, Zero, Three, Four, Five }
 public enum CardSuit { None, Pentagone, Squre, Triangle, Circle }
 
 [Serializable]
+public enum IntelligentCardMode { WenglaMode, StreetMode, OtherMode }
+
+[Serializable]
 public class Sound
 {
     public string name;
-
     public AudioClip clip;
-
     public AudioMixerGroup output;
-
     [Range(0f, 1f)]
     public float volume;
     [Range(0.1f, 3f)]
     public float pitch;
-
     [HideInInspector]
     public AudioSource source;
-
     public bool playOnAwake;
-
     public bool loop;
 }
 

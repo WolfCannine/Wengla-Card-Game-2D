@@ -11,7 +11,6 @@ public class CardController : MonoBehaviour
     public bool currentPlayer;
     public bool haveBeginnerCard;
     public bool haveBuzzerOption;
-    public bool haveFaceDownPileOption;
     public int exposeCardID;
     public int playerNumber;
     public string playerName;
@@ -25,6 +24,7 @@ public class CardController : MonoBehaviour
 
     [SerializeField]
     private int previousExposeCardID;
+    private bool rightToBuzzer;
     private Coroutine timerRoutine;
     private TransformSet discardCardTrans;
 
@@ -71,12 +71,11 @@ public class CardController : MonoBehaviour
         {
             _ = StartCoroutine(ActivateCardsRoutine());
             Gui.readyButtonGO.SetActive(true);
+            return;
         }
-        else
-        {
-            this.cardID_List.Sort();
-            SetReadyText();
-        }
+        this.cardID_List.Sort();
+        SetReadyText();
+        ic.CheckAllCombinations();
     }
 
     public void AssignBeginnerCard(int cardID)
@@ -90,11 +89,9 @@ public class CardController : MonoBehaviour
         {
             Gc.ExposeCardOnTable(cardID, pickable: true);
             Gui.readyButtonGO.SetActive(true);
+            return;
         }
-        else
-        {
-            ic.FindCardToDiscard();
-        }
+        ic.FindCardToDiscard();
     }
 
     public void ExposeCard(bool random = false, bool isAI = false)
@@ -134,14 +131,15 @@ public class CardController : MonoBehaviour
         Gc.SetBuzzerCallerID(allowBuzzer: true);
         exposeCardID = -1;
         haveBeginnerCard = false;
-        Gc.SetPlayerTurn(playerNumber);
+        if (rightToBuzzer) { Gc.SetPlayerTurn(playerNumber); }
         ExposeCardNotify(playerName, Gc.players[Gc.playerTurnNumber].playerName);
         Gc.SetTurnText();
-        if (isAI) { CheckAllCombinations(); }
+        if (isAI) { ic.CheckAllCombinations(); }
     }
 
     public void BuzzerCall()
     {
+        rightToBuzzer = Gc.playerTurnNumber == playerNumber;
         Gc.ResetTurnText(Gc.playerTurnNumber);
         AddCardIDToHand(Gc.exposeCardID);
         if (Gc.buzzerCallerID == -1 && Gc.allowBuzzer)
@@ -168,8 +166,8 @@ public class CardController : MonoBehaviour
 
     private void StopTurnRoutine()
     {
-        if (Gc.turnRoutine != null) { StopCoroutine(Gc.turnRoutine); }
-        Gc.turnRoutine = null;
+        //if (Gc.turnRoutine != null) { StopCoroutine(Gc.turnRoutine); }
+        //Gc.turnRoutine = null;
     }
 
     public void AddCardIDToHand(int cardID)
@@ -193,21 +191,15 @@ public class CardController : MonoBehaviour
         Gui.exposeButtonGO.SetActive(playerNumber == 0);
         timerRoutine = StartCoroutine(TimerRoutine(15));
     }
-
-    public void CheckAllCombinations()
-    {
-        if (playerNumber == 0) { return; }
-        ic.CheckAllCombinations();
-    }
     #endregion
 
-    #region Coroutine
+    #region Routines
     private IEnumerator ReadyRoutine()
     {
         int randomReady = Random.Range(1, Gc.sortingTime / 2);
         while (randomReady > 0)
         {
-            yield return new WaitForSeconds(1f);
+            yield return Helper.GetWait(1f);
             randomReady--;
         }
         ready = true;
@@ -232,7 +224,7 @@ public class CardController : MonoBehaviour
             cell.card = card;
             cell.IsOccupide = true;
             i++;
-            yield return new WaitForSeconds(0.0f);
+            yield return Helper.GetWait(0f);
         }
     }
 
@@ -248,7 +240,7 @@ public class CardController : MonoBehaviour
         SetTimerGlow(time % 2 != 0);
         while (time > 0)
         {
-            yield return new WaitForSeconds(1);
+            yield return Helper.GetWait(1f);
             time--;
             SetTimerText(time);
             SetTimerGlow(time % 2 != 0);
@@ -326,14 +318,27 @@ public class CardController : MonoBehaviour
 
     private IEnumerator TurnSetRoutine(int time = 20)
     {
+        if (playerNumber == 0) { Gui.SetSkipButton(true); }
         int randomBuzzerTime = playerNumber != 0 ? Random.Range(1, time - 1) : 0; // for ic(intelligent card)
         bool isImportant = false; // for ic(intelligent card)
         if (playerNumber != 0)
         {
             isImportant = ic.IsCardImp();
+            if (!isImportant)
+            {
+                Gui.CallNotification("Turn Skip!");
+                yield return Helper.GetWait(1.5f);
+                SkipTurn();
+                yield break;
+            }
         }
         while (time > 0)
         {
+            if (!Gc.allowBuzzer)
+            {
+                ResetTurnText();
+                yield break;
+            }
             if (time == 5) { NotifyTurnPlayer(); }
             if (haveBuzzerOption && randomBuzzerTime == time && isImportant)
             {
@@ -342,14 +347,19 @@ public class CardController : MonoBehaviour
                 Gc.turnRoutine = null;
                 yield break;
             }
-            yield return new WaitForSeconds(1);
+            yield return Helper.GetWait(1f);
             time--;
             SetTurnText(time % 2 == 0, time);
         }
+        SkipTurn();
+    }
+
+    private void SkipTurn()
+    {
         ResetTurnText();
-        TurnSkipNotify(Gc.players[Gc.playerTurnNumber].playerName);
         Gc.turnRoutine = null;
         Gc.SetPlayerTurn(playerNumber);
+        TurnSkipNotify(Gc.players[Gc.playerTurnNumber].playerName);
         Gc.SetTurnText();
     }
 
@@ -412,6 +422,8 @@ public class CardController : MonoBehaviour
             playerTimerText.text = "";
         }
     }
+
+    public void SkipPlayerTurn() { SkipTurn(); }
 
     private void SetTurnText(bool enable, int time = 0)
     {

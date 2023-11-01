@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public int playerTurnNumber;
     public int firstPlayerNumber;
     public int previousTurnNumber;
+    public int wenglaCollectors;
     public Coroutine turnRoutine;
     public Coroutine sortingRoutine;
     public Transform centerPlace;
@@ -30,13 +31,7 @@ public class GameController : MonoBehaviour
 
     public void CheckIfAllPlayersReady()
     {
-        foreach (CardController cc in players)
-        {
-            if (!cc.ready)
-            {
-                return;
-            }
-        }
+        if (!players.All(p => p.ready)) { return; }
         Cm.AllPlayersReady();
         ResetReadyText();
     }
@@ -77,11 +72,10 @@ public class GameController : MonoBehaviour
     public void ResetBuzzerOption()
     {
         playerTurnNumber = firstPlayerNumber;
-        foreach (CardController pc in players)
+        foreach (CardController cc in players)
         {
-            pc.haveBuzzerOption = true;
-            pc.haveFaceDownPileOption = false;
-            GameplayUI.gUI.buzzerCountText.text = "1";
+            cc.haveBuzzerOption = true;
+            GameplayUI.gUI.ResetPlayerBuzzerCountText();
         }
     }
 
@@ -125,9 +119,11 @@ public class GameController : MonoBehaviour
  * after game start
  * 
  * set turn time for player with 13th card to 20 seconds and he will discard a card
- * if he not after 20 second a random cad will be discarded
+ * if he not after 20 second a random card will be discarded
  * then the turn is of next player and if someone else press the buzzer he will lose his turn
  * and the next player will call the buzzer
  * 
  * 
  */
+//r d h j m h j, n m i A
+////

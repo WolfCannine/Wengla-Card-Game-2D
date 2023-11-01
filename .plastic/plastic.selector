@@ -1,0 +1,4 @@
+repository "Wengla_Card_Game_2D@canninew@cloud"
+  path "/"
+    br "/main"
+    co "/main"

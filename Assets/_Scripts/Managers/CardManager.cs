@@ -26,6 +26,7 @@ public class CardManager : MonoBehaviour
     private GameplayUI Gui => GameplayUI.gUI;
     #endregion
 
+    #region Unity Methods
     private void Awake()
     {
         cm = this;
@@ -35,7 +36,9 @@ public class CardManager : MonoBehaviour
     {
         Invoke(nameof(ShuffleCards), 0f);
     }
+    #endregion
 
+    #region Public Methods
     public void ShuffleCards()
     {
         Gui.CallNotification("Dealer is Shufling Cards!", resetText: false);
@@ -51,7 +54,7 @@ public class CardManager : MonoBehaviour
 
     public void AssignBeginnerCard()
     {
-        Gc.firstPlayerNumber = randomPlayer = Random.Range(0, 10);
+        Gc.firstPlayerNumber = randomPlayer = Random.Range(0, numberOfPlayers);
         Gc.ResetBuzzerOption();
         Gc.SetPlayerTurn(randomPlayer);
         CardController randomPlayerController = Gc.players[randomPlayer];
@@ -70,7 +73,9 @@ public class CardManager : MonoBehaviour
         Gui.CallNotification(playerName + " Please discard a card.\r\nOtherwise a random card will be discarded!", resetText: false);
         Gc.players[randomPlayer].Discard_a_Card();
     }
+    #endregion
 
+    #region Private Methods
     private void PromptForReady()
     {
         foreach (CardController cc in Gc.players)
@@ -105,7 +110,9 @@ public class CardManager : MonoBehaviour
         discardPile.Add(cardID);
         if (faceDownPile.Contains(cardID)) { _ = faceDownPile.Remove(cardID); }
     }
+    #endregion
 
+    #region Routines
     private IEnumerator AssignCardsToHand()
     {
         int currentPlayer = 0;
@@ -119,12 +126,12 @@ public class CardManager : MonoBehaviour
                 cradID_List.Add(playerCardsIDs[ID]);
                 currentCard++;
                 ID++;
+                yield return null;
             }
             Gc.players[currentPlayer].AssignCardID_List(cradID_List);
-            Gc.players[currentPlayer].CheckAllCombinations();
             currentPlayer++;
+            yield return Helper.GetWait(0.1f);
         }
-        yield return new WaitForSeconds(0f);
         AssignBeginnerCard();
     }
 
@@ -136,10 +143,11 @@ public class CardManager : MonoBehaviour
         Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false);
         while (time > 0)
         {
-            yield return new WaitForSeconds(1);
+            yield return Helper.GetWait(1f);
             time--;
             Gui.CallNotification("You have " + time + " seconds to sort your cards", resetText: false, msg: false);
         }
         Gui.AreYouReadyButton();
     }
+    #endregion
 }

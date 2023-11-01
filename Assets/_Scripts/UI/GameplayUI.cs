@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,12 +15,15 @@ public class GameplayUI : MonoBehaviour
     public GameObject finishButtonGO;
     public GameObject exposeButtonGO;
     public GameObject shuffleButtonGO;
+    public GameObject skipTurnButtonGO;
     public GameObject notificationParentGO;
     public GameObject notificationPrefab;
     public GameObject notificationContentGO;
     public TextMeshProUGUI buzzerCountText;
     public TextMeshProUGUI notificationText;
     public Sprite selectedCardDefaultSprite;
+    public ObjectPool objectPool;
+    public float notificationDuration = 120f;
     private GameController Gc => GameController.gc;
 
     private void Awake()
@@ -58,21 +62,32 @@ public class GameplayUI : MonoBehaviour
         if (TouchManager.tm.selectedCard == null && !Gc.players[0].haveBeginnerCard)
         {
             CallNotification("Plaese select a Card then press Expose Button!", msg: false);
+            return;
         }
-        else
-        {
-            Gc.players[0].ExposeCard();
-        }
+        Gc.players[0].ExposeCard();
     }
 
     public void BuzzerButton()
     {
+        if (!Gc.allowBuzzer) { return; }
+        SetSkipButton();
         CardController player = Gc.players[0];
         if (player.haveBuzzerOption)
         {
             player.haveBuzzerOption = false;
             player.BuzzerCall();
         }
+    }
+
+    public void SkipTurnButton()
+    {
+        Gc.players[0].SkipPlayerTurn();
+        SetSkipButton();
+    }
+
+    public void SetSkipButton(bool value = false)
+    {
+        skipTurnButtonGO.SetActive(value);
     }
 
     public void RestartButton()
@@ -85,11 +100,9 @@ public class GameplayUI : MonoBehaviour
         if (sprite != null)
         {
             selectedCardImage.sprite = sprite;
+            return;
         }
-        else
-        {
-            selectedCardImage.sprite = selectedCardDefaultSprite;
-        }
+        selectedCardImage.sprite = selectedCardDefaultSprite;
     }
 
     public void PauseGame()
@@ -104,6 +117,11 @@ public class GameplayUI : MonoBehaviour
         pauseGamePanel.SetActive(false);
     }
 
+    public void ResetPlayerBuzzerCountText()
+    {
+        buzzerCountText.text = "1";
+    }
+
     private void ResetText()
     {
         //notificationText.text = "";
@@ -111,9 +129,15 @@ public class GameplayUI : MonoBehaviour
 
     private void CreateNotificationInContent(in string text)
     {
-        GameObject obj = Instantiate(notificationPrefab, notificationContentGO.transform);
+        GameObject obj = objectPool.GetPoolObject();
         obj.transform.SetParent(notificationContentGO.transform);
         obj.GetComponent<TextMeshProUGUI>().text = text;
-        Destroy(obj, 120f);
+        _ = StartCoroutine(ReturnNotificationAfterDelay(obj, notificationDuration));
+    }
+
+    private IEnumerator ReturnNotificationAfterDelay(GameObject obj, float delay)
+    {
+        yield return Helper.GetWait(delay);
+        objectPool.ReturnPoolObject(obj);
     }
 }

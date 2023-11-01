@@ -5,34 +5,38 @@ using UnityEngine;
 
 public class IntelligentCard : MonoBehaviour
 {
-    private CardController cc;
-    private Coroutine checkCombinationRoutine;
-    private GameController Gc => GameController.gc;
-
+    #region Fields
     public bool haveCardToExpose;
-
     public bool haveStreet;
     public bool haveWengla;
     public int WenglaNumber;
     public int cardNumberWithMaxCount;
+    public CardSuit cardSuitWithMaxCount;
+    public IntelligentCardMode iCMode;
     public CardSuit streetSuit;
+    public Street foundStreet;
+    public Wengla foundWengla;
     public List<Twin> foundTwins = new();
     public List<Triplet> foundTriplets = new();
     public List<Quadruplet> foundQuadruplets = new();
-    public Street foundStreet;
-    public Wengla foundWengla;
-    public Dictionary<CardSuit, List<int>> suitCardIDs = new();
-
-    public Queue<int> lessImportantCards = new();
     public List<int> lessImportantCards1 = new();
     public List<int> cardIDsWithMaxCounts = new();
+    public List<int> cardIDsHavingNearStreet = new();
+    public Queue<int> lessImportantCards = new();
+    public Dictionary<CardSuit, List<int>> suitCardIDs = new();
+    private Dictionary<CardSuit, List<int>> suitCardDifferentIDs = new();
+    private CardController cc;
+    private Coroutine checkCombinationRoutine;
+    private GameController Gc => GameController.gc;
     //private int cardToExpose = -1;
+    #endregion
 
     private void Awake()
     {
         cc = GetComponent<CardController>();
     }
 
+    #region Public Methods
     public void FindCardToDiscard()
     {
         CheckAllCombinations();
@@ -302,22 +306,6 @@ public class IntelligentCard : MonoBehaviour
         return true;
     }
 
-    private int SetFirstCardNumber(out int count) // for HaveWengla func
-    {
-        int j = 0;
-        foreach (int i in cc.cardID_List)
-        {
-            if (Gc.cards[i].cardNumber != 0)
-            {
-                count = j;
-                return Gc.cards[i].cardNumber;
-            }
-            j++;
-        }
-        count = -1;
-        return 0;
-    }
-
     // Near wengla combination
     public bool HaveNearWengla(out int cardNumber)
     {
@@ -344,7 +332,8 @@ public class IntelligentCard : MonoBehaviour
         return true;
     }
 
-    public int FindCardNumberWithMaxCount() // for wengla formation
+    // for wengla formation
+    public int FindCardNumberWithMaxCount()
     {
         cardIDsWithMaxCounts.Clear();
         Dictionary<int, List<int>> cardCounts = new();
@@ -367,57 +356,48 @@ public class IntelligentCard : MonoBehaviour
         return cardNumberWithMaxCount;
     }
 
-    private IEnumerator CheckCardsCombinations()
+    public CardSuit FindCardSuitWithMaxCount(out List<int> numbers)
     {
-        float wait = 0.3f;
-        SetSuitList();
+        cardIDsHavingNearStreet.Clear();
 
-        yield return new WaitForSeconds(wait);// For Wengla!!!!!!!!!!!!
-        haveWengla = HaveWengla(out WenglaNumber);
-        foundWengla = new Wengla { CardNumber = WenglaNumber };
-        if (haveWengla)
+        int maxcount = 0;
+        foreach (CardSuit k in suitCardIDs.Keys)
         {
-            Debug.Log(cc.playerName + " won!");
-            yield break;
+            if (suitCardIDs[k].Count > maxcount)
+            {
+                maxcount = suitCardIDs[k].Count;
+                cardSuitWithMaxCount = k;
+            }
+            List<int> cardIDs = suitCardIDs[k];
+            foreach (int id in cardIDs)
+            {
+                if (cardIDs.Contains(Gc.cards[id].cardNumber))
+                {
+
+                }
+            }
         }
 
-        yield return new WaitForSeconds(wait);
+        numbers = new();
+        return cardSuitWithMaxCount;
+    }
+    #endregion
 
-        List<CardSuit> suitsToCheck = new() { CardSuit.Pentagone, CardSuit.Squre, CardSuit.Triangle, CardSuit.Circle };
-
-        foreach (CardSuit suit in suitsToCheck)
+    #region Private Methods
+    private int SetFirstCardNumber(out int count) // for HaveWengla func
+    {
+        int j = 0;
+        foreach (int i in cc.cardID_List)
         {
-            yield return new WaitForSeconds(wait);
-
-            if (HaveStreet(suit)) // For Street!!!!!!!!!!!!
+            if (Gc.cards[i].cardNumber != 0)
             {
-                haveStreet = true;
-                streetSuit = suit;
-                foundStreet = new Street { CardSuit = suit };
+                count = j;
+                return Gc.cards[i].cardNumber;
             }
-
-            yield return new WaitForSeconds(wait);
-
-            if (HaveQuadruplets(out int number, suit)) // For Quadruplets!!!!!!!!!!!!
-            {
-                //foundQuadruplets.Add(new Quadruplet { CardNumber = number, CardSuit = suit });
-                AddCardIDsInCombination(suit, number, 2);
-                yield return new WaitForSeconds(wait);
-            }
-            else if (HaveTriplets(out number, suit)) // For Triplets!!!!!!!!!!!!
-            {
-                //foundTriplets.Add(new Triplet { CardNumber = number, CardSuit = suit });
-                AddCardIDsInCombination(suit, number, 1);
-                yield return new WaitForSeconds(wait);
-            }
-            else if (HaveTwins(out number, suit)) // For Twins!!!!!!!!!!!!
-            {
-                //foundTwins.Add(new Twin { CardNumber = number, CardSuit = suit });
-                AddCardIDsInCombination(suit, number, 0);
-                yield return new WaitForSeconds(wait);
-            }
+            j++;
         }
-        _ = StartCoroutine(SetLessImportantCards());
+        count = -1;
+        return 0;
     }
 
     private void AddCardIDsInCombination(CardSuit suit, int number, int combType)
@@ -447,33 +427,6 @@ public class IntelligentCard : MonoBehaviour
                 j++;
             }
         }
-    }
-
-    private IEnumerator SetLessImportantCards()
-    {
-        const float wait = 0.2f;
-        int maxCountCardNum = FindCardNumberWithMaxCount();
-        lessImportantCards.Clear();
-        lessImportantCards1.Clear();
-        foreach (int id in cc.cardID_List)
-        {
-            if (id < 10 || CheckStreet(id) || CheckQuad(id) || CheckTriplet(id) || CheckTwin(id) ||
-                Gc.cards[id].cardNumber == maxCountCardNum)
-            {
-                yield return new WaitForSeconds(wait);
-                continue;
-            }
-            lessImportantCards.Enqueue(id);
-            lessImportantCards1 = lessImportantCards.ToList();
-        }
-        if (!haveCardToExpose)
-        {
-            int cardID = GetCardIDToExpose();
-            yield return new WaitForSeconds(wait);
-            cc.exposeCardID = Gc.exposeCardID != cardID ? cardID : GetCardIDToExpose();
-            haveCardToExpose = cardID != -1;
-        }
-        haveCardToExpose = true;
     }
 
     private bool CheckStreet(int cardToCheck = -1)
@@ -535,6 +488,85 @@ public class IntelligentCard : MonoBehaviour
         }
         return false;
     }
+    #endregion
+
+    #region Routines
+    private IEnumerator CheckCardsCombinations()
+    {
+        WaitForSeconds wait = Helper.GetWait(0.3f);
+        SetSuitList();
+
+        yield return wait;
+        haveWengla = HaveWengla(out WenglaNumber);
+        foundWengla = new Wengla { CardNumber = WenglaNumber };
+        if (haveWengla)
+        {
+            Debug.Log(cc.playerName + " won!");
+            yield break;
+        }
+
+        yield return wait;
+
+        List<CardSuit> suitsToCheck = new() { CardSuit.Pentagone, CardSuit.Squre, CardSuit.Triangle, CardSuit.Circle };
+
+        foreach (CardSuit suit in suitsToCheck)
+        {
+            yield return wait;
+
+            if (HaveStreet(suit))
+            {
+                haveStreet = true;
+                streetSuit = suit;
+                foundStreet = new Street { CardSuit = suit };
+            }
+
+            yield return wait;
+
+            if (HaveQuadruplets(out int number, suit))
+            {
+                AddCardIDsInCombination(suit, number, 2);
+                yield return wait;
+            }
+            else if (HaveTriplets(out number, suit))
+            {
+                AddCardIDsInCombination(suit, number, 1);
+                yield return wait;
+            }
+            else if (HaveTwins(out number, suit))
+            {
+                AddCardIDsInCombination(suit, number, 0);
+                yield return wait;
+            }
+        }
+        _ = StartCoroutine(SetLessImportantCards());
+    }
+
+    private IEnumerator SetLessImportantCards()
+    {
+        int maxCountCardNum = FindCardNumberWithMaxCount();
+        lessImportantCards.Clear();
+        lessImportantCards1.Clear();
+        foreach (int id in cc.cardID_List)
+        {
+            if (id < 10 || CheckStreet(id) || CheckQuad(id) || CheckTriplet(id) || CheckTwin(id) ||
+                Gc.cards[id].cardNumber == maxCountCardNum)
+            {
+                yield return Helper.GetWait(0.2f);
+                continue;
+            }
+            lessImportantCards.Enqueue(id);
+            lessImportantCards1 = lessImportantCards.ToList();
+        }
+        if (!haveCardToExpose)
+        {
+            int cardID = GetCardIDToExpose();
+            yield return Helper.GetWait(0.2f);
+            cc.exposeCardID = Gc.exposeCardID != cardID ? cardID : GetCardIDToExpose();
+            haveCardToExpose = cardID != -1;
+        }
+        haveCardToExpose = true;
+    }
+    #endregion
 }
 
 //if (lessImpCardID != -1)
@@ -557,3 +589,8 @@ public class IntelligentCard : MonoBehaviour
 //{
 //    return cc.cardID_List.LastOrDefault();
 //}
+/*
+ * some act as making wengla
+ * some act to make street
+ * some collect quads and triplets and duo combination
+ */
